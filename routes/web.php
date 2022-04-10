@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Http\Controllers\Admin\adminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::get('/hello', function () {
 Route::view('/welcome','welcome');
 
 // Using Maincontroller function
+Route::get('/Admin',[adminController::class,'index2'])->name('index2');
+
 Route::get('/test/',[Maincontroller::class,'test'])->name('test');
 Route::get('/',[Maincontroller::class,'index'])->name('index');
 

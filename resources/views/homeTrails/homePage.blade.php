@@ -42,7 +42,7 @@
             <ul class="category-list">
                 <li class="category-item adults">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-01.jpg" alt="New Releaase" />
+                        <img src="images/category-filter/home-v1/category-filter-img-01.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
@@ -138,7 +138,7 @@
                 </li>
                 <li class="category-item video">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-03.jpg" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-03.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
@@ -186,7 +186,7 @@
                 </li>
                 <li class="category-item audio">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-04.jpg" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-04.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
@@ -234,7 +234,7 @@
                 </li>
                 <li class="category-item books">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-05.jpg" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-05.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
@@ -282,7 +282,7 @@
                 </li>
                 <li class="category-item magazines">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-06.jpg" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-06.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
@@ -330,7 +330,7 @@
                 </li>
                 <li class="category-item adults">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-07.jpg" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-07.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
@@ -378,7 +378,7 @@
                 </li>
                 <li class="category-item kids-teens">
                     <figure>
-                        <img src="{{asset("assets")}}/images/category-filter/home-v1/category-filter-img-08.jpg" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-08.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
                                 <h4>The Great Gatsby</h4>
