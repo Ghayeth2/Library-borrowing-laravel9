@@ -1,7 +1,7 @@
 
 @extends('layouts.adminBase')
 
-@section('title', 'Admin Pannel')
+@section('title', 'Category List')
 
 
 
@@ -12,7 +12,7 @@
     <div class="content-body">
         <!-- row -->
 
-           <h3>Blank Page</h3>
+           <h3>Category List</h3>
 
 
     </div>
