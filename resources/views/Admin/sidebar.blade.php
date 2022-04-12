@@ -4,7 +4,7 @@
 <div class="quixnav">
     <div class="quixnav-scroll">
         <ul class="metismenu" id="menu">
-            <li><a class="has-arrow" href="Admin/profile" aria-expanded="false"><i
+            <li><a  href="Admin/profile" aria-expanded="false"><i
                         class="icon icon-single-04 text-red"></i><span class="nav-text">Profile</span></a>
             </li>
             <li><a class="has-arrow" href="Admin/borrow" aria-expanded="false"><i class="fa-solid fa-books " style="color: whitesmoke"></i>
@@ -26,9 +26,6 @@
                     <li><a href="./chart-flot.html">default</a></li>
                     <li><a href="./chart-morris.html">default</a></li>
                     <li><a href="./chart-chartjs.html">default</a></li>
-                    <li><a href="./chart-chartist.html">default</a></li>
-                    <li><a href="./chart-sparkline.html">default</a></li>
-                    <li><a href="./chart-peity.html">default</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow" href="/Admin/book" aria-expanded="false"><i class="fa-solid fa-book-arrow-right"></i>
@@ -38,19 +35,10 @@
                     <li><a href="./ui-alert.html">default</a></li>
                     <li><a href="./ui-badge.html">default</a></li>
                     <li><a href="./ui-button.html">default</a></li>
-                    <li><a href="./ui-modal.html">default</a></li>
+                    <li><a href="./ui-modal.html/html.blabla">default</a></li>
                     <li><a href="./ui-button-group.html">default</a></li>
                     <li><a href="./ui-list-group.html">default</a></li>
                     <li><a href="./ui-media-object.html">default</a></li>
-                    <li><a href="./ui-card.html">default</a></li>
-                    <li><a href="./ui-carousel.html">default</a></li>
-                    <li><a href="./ui-dropdown.html">default</a></li>
-                    <li><a href="./ui-popover.html">default</a></li>
-                    <li><a href="./ui-progressbar.html">default</a></li>
-                    <li><a href="./ui-tab.html">default</a></li>
-                    <li><a href="./ui-typography.html">default</a></li>
-                    <li><a href="./ui-pagination.html">default</a></li>
-                    <li><a href="./ui-grid.html">default</a></li>
 
                 </ul>
             </li>
