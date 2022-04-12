@@ -46,11 +46,11 @@
                                 <td><span class="badge badge-success">{{$row->image}}</span>
                                 </td>
                                 <td>{{$row->status}} </td>
-                                <td><a href="/Admin/Category/edit{{$row->id}}/"
+                                <td><a href="/Admin/Category/edit/{{$row->id}}"
                                        class="btn btn-outline-dark">Edit</a></td>
-                                <td><a href="/Admin/Category/delete{{$row->id}}/"
+                                <td><a href="/Admin/Category/delete/{{$row->id}}"
                                        class="btn btn-outline-danger">Delete</a></td>
-                                <td><a href="/Admin/Category/show{{$row->id}}/"
+                                <td><a href="/Admin/Category/show/{{$row->id}}"
                                        class="btn btn-outline-warning">Show</a></td>
                             </tr>
                             @endforeach
