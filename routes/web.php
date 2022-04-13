@@ -31,6 +31,7 @@ Route::get('/admin/category/create',[CategoryController::class,'create'])->name(
 
 Route::post('/Admin/Category/store',[CategoryController::class,'store'])->name('admin_category_store');
 Route::get('/Admin/Category/edit/{id}',[CategoryController::class,'edit'])->name('admin_category_edit');
+Route::get('/Admin/Category/show/{id}',[CategoryController::class,'show'])->name('admin_category_show');
 Route::post('/Admin/Category/update/{id}',[CategoryController::class,'update'])->name('admin_category_update');
 
 // Redirect function

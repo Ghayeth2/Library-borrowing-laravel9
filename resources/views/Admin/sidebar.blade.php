@@ -7,7 +7,7 @@
             <li><a  href="Admin/profile" aria-expanded="false"><i
                         class="icon icon-single-04 text-red"></i><span class="nav-text">Profile</span></a>
             </li>
-            <li><a class="has-arrow" href="Admin/borrow" aria-expanded="false"><i class="fa-solid fa-books " style="color: whitesmoke"></i>
+            <li><a class="has-arrow" href="Admin/borrow" aria-expanded="false"><i class="icon icon-window-add" style="color: whitesmoke"></i>
                     <span class="nav-text">Borrows</span></a>
                 <ul aria-expanded="false">
                     <li><a href="./app-profile.html">default</a></li>
@@ -28,7 +28,7 @@
                     <li><a href="./chart-chartjs.html">default</a></li>
                 </ul>
             </li>
-            <li><a class="has-arrow" href="/Admin/book" aria-expanded="false"><i class="fa-solid fa-book-arrow-right"></i>
+            <li><a class="has-arrow" href="/Admin/book" aria-expanded="false"><i class="icon icon-world-2"></i>
                     <span class="nav-text">Books</span></a>
                 <ul aria-expanded="false">
                     <li><a href="./ui-accordion.html">default</a></li>

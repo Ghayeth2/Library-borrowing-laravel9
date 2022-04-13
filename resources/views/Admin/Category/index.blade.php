@@ -12,11 +12,13 @@
     <div class="content-body">
         <!-- row -->
 
-           <h3>Category List</h3>
+        <h3>Category List</h3>
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header col-sm-1 col-lg-12" >
                     <h4 class="card-title">Category List</h4>
+                    <a href="/admin/category/create"> <button type="button" class="btn btn-success " >
+                            Add Category</button></a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -49,7 +51,8 @@
                                 <td><a href="/Admin/Category/edit/{{$row->id}}"
                                        class="btn btn-outline-dark">Edit</a></td>
                                 <td><a href="/Admin/Category/delete/{{$row->id}}"
-                                       class="btn btn-outline-danger">Delete</a></td>
+                                       class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"
+                                    >Delete</a></td>
                                 <td><a href="/Admin/Category/show/{{$row->id}}"
                                        class="btn btn-outline-warning">Show</a></td>
                             </tr>
