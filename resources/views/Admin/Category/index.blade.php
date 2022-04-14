@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-header col-sm-1 col-lg-12" >
                     <h4 class="card-title">Category List</h4>
-                    <a href="/admin/category/create"> <button type="button" class="btn btn-success " >
+                    <a href="{{route('Admin.Category.create')}}"> <button type="button" class="btn btn-success " >
                             Add Category</button></a>
                 </div>
                 <div class="card-body">
@@ -48,12 +48,12 @@
                                 <td><span class="badge badge-success">{{$row->image}}</span>
                                 </td>
                                 <td>{{$row->status}} </td>
-                                <td><a href="/Admin/Category/edit/{{$row->id}}"
+                                <td><a href="{{route('Admin.Category.edit',['id'=>$row->id])}}"
                                        class="btn btn-outline-dark">Edit</a></td>
-                                <td><a href="/Admin/Category/delete/{{$row->id}}"
+                                <td><a href="{{route('Admin.Category.index',['id'=>$row->id])}}"
                                        class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"
                                     >Delete</a></td>
-                                <td><a href="/Admin/Category/show/{{$row->id}}"
+                                <td><a href="{{route('Admin.Category.show',['id'=>$row->id])}}"
                                        class="btn btn-outline-warning">Show</a></td>
                             </tr>
                             @endforeach

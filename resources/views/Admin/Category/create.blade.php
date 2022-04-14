@@ -20,12 +20,12 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="/Admin/Category/store" method="post">
+                    <form action="{{route('Admin.Category.store')}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Title</label>
-                                <input type="text" class="form-control" name="title" placeholder="----------------">
+                                <input type="text" class="form-control" name="title" placeholder="title">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Keywords</label>

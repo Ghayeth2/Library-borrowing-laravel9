@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="/Admin/Category/update/{{$data->id}}" method="post">
+                    <form action="{{route('Admin.Category.update',['id'=>$data->id])}}"method="post">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
