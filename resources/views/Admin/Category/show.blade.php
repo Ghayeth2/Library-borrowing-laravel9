@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title ">{{$data->title}}</h4>
-                    <a href="{{route('Admin.Category.index',['id'=>$data->id])}}"> <button type="button" class="btn btn-danger "
+                    <a href="{{route('Admin.Category.destroy',['id'=>$data->id])}}"> <button type="button" class="btn btn-danger "
                                                                             onclick="return confirm('Are you sure you want to delete?')">
                             Delete</button></a>
                     <a href="{{route('Admin.Category.edit',['id'=>$data->id])}}"> <button type="button" class="btn btn-dark " >

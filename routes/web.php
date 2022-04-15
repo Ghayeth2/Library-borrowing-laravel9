@@ -37,6 +37,7 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
         Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
         Route::get('/show/{id}', [CategoryController::class, 'show'])->name('show');
         Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
     });
 });
 // Redirect function

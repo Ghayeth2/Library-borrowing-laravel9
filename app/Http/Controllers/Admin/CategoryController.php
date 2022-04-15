@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -48,8 +49,11 @@ class CategoryController extends Controller
         $data->keyword = $request->keyword;
         $data->description = $request->description;
         $data->status = $request->status;
+        if($request->file('image')){
+            $data->image = $request->file('image')->store('images');
+        }
         $data->save();
-        return redirect('admin/category');
+        return redirect('Admin/Category');
     }
 
     /**
@@ -98,8 +102,11 @@ class CategoryController extends Controller
         $data->keyword = $request->keyword;
         $data->description = $request->description;
         $data->status = $request->status;
+        if($request->file('image')){
+            $data->image = $request->file('image')->store('images');
+        }
         $data->save();
-        return redirect('admin/category');
+        return redirect('Admin/Category');
     }
 
     /**
@@ -111,5 +118,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $data =  Category::find($id);
+        Storage::delete($data->image);
+        $data->delete();
+        return redirect('/Admin/Category');
     }
 }

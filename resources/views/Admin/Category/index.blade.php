@@ -45,12 +45,17 @@
                                 <td><span class="text-muted">{{$row->keyword}}</span>
                                 </td>
                                 <td>{{$row->description}}</td>
-                                <td><span class="badge badge-success">{{$row->image}}</span>
+                                <td>
+                                    <span >
+                                        @if($row->image)
+                                        <img src="{{Storage::url($row->image)}}" style="height: 40px">
+                                        @endif
+                                    </span>
                                 </td>
                                 <td>{{$row->status}} </td>
                                 <td><a href="{{route('Admin.Category.edit',['id'=>$row->id])}}"
                                        class="btn btn-outline-dark">Edit</a></td>
-                                <td><a href="{{route('Admin.Category.index',['id'=>$row->id])}}"
+                                <td><a href="{{route('Admin.Category.destroy',['id'=>$row->id])}}"
                                        class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"
                                     >Delete</a></td>
                                 <td><a href="{{route('Admin.Category.show',['id'=>$row->id])}}"
@@ -67,6 +72,6 @@
 
     </div>
     <!--**********************************
-        Content body end
+        Content body end  class="badge badge-success"
     ***********************************-->
 @endsection
