@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    protected $appends = ['getParentTree'];
+    public static function getParentTree($categoy,$title){
+        if($categoy->parent_id == 0)
+            return $title;
+        $parent = Category::find($categoy->parent_id);
+        $title = $parent->title." > ".$title;
+        return CategoryController::getParentTree($categoy,$title);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +39,10 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('Admin.Category.create');
+        $data = Category::all();
+        return view('Admin.Category.create',[
+            'data'=> $data
+        ]);
     }
 
     /**
@@ -44,7 +55,7 @@ class CategoryController extends Controller
     {
         //echo $request;
         $data = new Category();
-        $data->parent_id = 0;
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->keyword = $request->keyword;
         $data->description = $request->description;
@@ -81,8 +92,10 @@ class CategoryController extends Controller
     {
         //echo "Category edit :",$id;
         $data = Category::find($id);
+        $datalist = Category::all();
         return view('Admin.Category.edit',[
-            'data'=> $data
+            'data'=> $data,
+            'datalist'=> $datalist
         ]);
     }
 
@@ -97,7 +110,7 @@ class CategoryController extends Controller
     {
         //
         $data =  Category::find($id);
-        $data->parent_id = 0;
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->keyword = $request->keyword;
         $data->description = $request->description;

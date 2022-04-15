@@ -23,6 +23,18 @@
                     <form action="{{route('Admin.Category.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Parent Category</label>
+                                <select id="inputState" class="form-control" name="parent_id">
+                                    <option value="0" selected="selected">Main Category</option>
+                                    @foreach($data as $row)
+                                        <option value="{{$row->id}}">{{\App\Http\Controllers\Admin\CategoryController::getParentTree(
+                                                 $row,$row->title)}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Title</label>
                                 <input type="text" class="form-control" name="title" placeholder="title">
@@ -53,7 +65,6 @@
                                     <option>False</option>
                                 </select>
                             </div>
-
                         </div>
                         <div class="form-group">
                             <div class="form-check">
