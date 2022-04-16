@@ -23,7 +23,7 @@
             <li><a  href="{{route('Admin.Category.index')}}" aria-expanded="false"><i
                         class="icon icon-chart-bar-33"></i><span class="nav-text">Categories</span></a>
             </li>
-            <li><a  href="{{route('Admin.Category.index')}}" aria-expanded="false"><i class="icon icon-world-2"></i>
+            <li><a  href="{{route('Admin.book.index')}}" aria-expanded="false"><i class="icon icon-world-2"></i>
                     <span class="nav-text">Books</span></a>
             </li>
 
