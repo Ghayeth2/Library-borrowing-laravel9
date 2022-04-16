@@ -27,12 +27,14 @@ Route::view('/welcome','welcome');
 /*                 Prefix  Route   Function           */
 Route::get('/test/',[Maincontroller::class,'test'])->name('test');
 Route::get('/',[Maincontroller::class,'index'])->name('index');
+
+
 Route::prefix('Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
     Route::get('/', [adminController::class, 'index2'])->name('index2');
     /*                      Admin Category Panel Controller                  */
-    Route::prefix('Category')->name('Category.')->controller(CategoryController::class)->group(function () {
-        Route::get('/',  'index')->name('index');
+    Route::prefix('Category')->controller(CategoryController::class)->name('Category.')->group(function () {
+        Route::get('/','index' )->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');

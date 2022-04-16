@@ -32,12 +32,11 @@ class AdminBookController extends Controller
      */
     public function create()
     {
-        //$data = Category::all();
-        //        return view('Admin.book.create',[
-        //            'data'=> $data
-        //        ]);
-        echo "vreate";
-
+        //
+        $data = Category::all();
+        return view('Admin.book.create',[
+            'data'=> $data
+        ]);
     }
 
     /**
