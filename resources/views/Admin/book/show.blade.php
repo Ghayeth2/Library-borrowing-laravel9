@@ -36,6 +36,11 @@
                                 <th scope="col">{{$data->title}}</th>
                             </tr>
                             <tr>
+                                <th scope="col" style="color: black">Categroy</th>
+                                <th scope="col">{{\App\Http\Controllers\Admin\CategoryController::getParentTree(
+                                                 $data->category,$data->category->title)}}</th>
+                            </tr>
+                            <tr>
                                 <th scope="col" style="color: black">Keyword</th>
                                 <th scope="col">{{$data->keyword}}</th>
                             </tr>

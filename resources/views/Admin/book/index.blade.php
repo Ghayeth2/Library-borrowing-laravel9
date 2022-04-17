@@ -26,7 +26,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Category_id</th>
+                                <th>Category</th>
                                 <th>Title</th>
                                 <th>Image</th>
                                 <th>Status</th>
@@ -41,7 +41,7 @@
                                     <td><a href="javascript:void(0)">{{$row->id}}</a>
                                     </td>
                                     <td>{{\App\Http\Controllers\Admin\CategoryController::getParentTree(
-                                                 $row,$row->title)}}</td>
+                                                 $row->category,$row->category->title)}}</td>
                                     <td>{{$row->title}}</td>
                                     <td>
                                     <span >

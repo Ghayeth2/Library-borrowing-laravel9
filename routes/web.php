@@ -15,12 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Printout message from Route
-Route::get('/hello', function () {
-    return "Welcome to the new ceated project";
-});
-// Call views without controller
-Route::view('/welcome','welcome');
 
 // Using Maincontroller function
 
@@ -33,24 +27,26 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
     Route::get('/', [adminController::class, 'index2'])->name('index2');
     /*                      Admin Category Panel Controller                  */
-    Route::prefix('Category')->controller(CategoryController::class)->name('Category.')->group(function () {
-        Route::get('/','index' )->name('index');
+    Route::prefix('Category')->name('Category.')->controller(CategoryController::class)->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');
-        Route::post('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/','index' )->name('index');
+
     });
     /*                      Admin Book Panel Controller                  */
     Route::prefix('book')->name('book.')->controller(AdminBookController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
         Route::get('/create',  'create')->name('create');
         Route::post('/store',  'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');
         Route::post('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/', 'index')->name('index');
+
     });
 });
 // Redirect function

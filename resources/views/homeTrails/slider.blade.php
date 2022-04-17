@@ -1,3 +1,4 @@
+<body>
 <!-- Start: Slider Section -->
 <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
 
@@ -58,3 +59,4 @@
     <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
 </div>
 <!-- End: Slider Section -->
+</body>

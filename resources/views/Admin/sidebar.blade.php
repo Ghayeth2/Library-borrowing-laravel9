@@ -24,7 +24,7 @@
                         class="icon-menu" style="color: yellow"></i><span class="nav-text">Categories</span></a>
             </li>
             <li><a  href="{{route('Admin.book.index')}}" aria-expanded="false"><i class="icon-book-open"
-                              style="color: orangered">  </i><span class="nav-text">Books</span></a>
+                              style="color: lightsalmon">  </i><span class="nav-text">Books</span></a>
             </li>
 
             <li><a  href="{{route('Admin.Category.index')}}" aria-expanded="false"><i

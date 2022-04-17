@@ -29,7 +29,7 @@
                                     <option value="0" selected="selected">Main Category</option>
                                     @foreach($datalist as $row)
                                         <option value="{{$row->id}}" @if($row->id == $data->parent_id) selected="selected"@endif >
-                                            {{\App\Http\Controllers\Admin\CategoryController::getParentTree(
+                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $row,$row->title)}}</option>
                                     @endforeach
                                 </select>
