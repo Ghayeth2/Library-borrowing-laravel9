@@ -40,8 +40,7 @@
                                 <tr>
                                     <td><a href="javascript:void(0)">{{$row->id}}</a>
                                     </td>
-                                    <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
-                                                 $row,$row->title)}}</td>
+                                    <td> {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($row,$row->title)}}</td>
                                     <td>{{$row->title}}</td>
                                     <td>
                                     <span >

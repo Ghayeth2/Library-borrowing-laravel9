@@ -10,12 +10,15 @@ use Illuminate\Support\Facades\Storage;
 class CategoryController extends Controller
 {
     protected $appends = ['getParentsTree'];
-    public static function getParentsTree($categoy,$title){
-        if($categoy->parent_id == 0)
+    public static function getParentsTree($category,$title){
+        if ($category->parent_id == 0) {
             return $title;
-        $parent = Category::find($categoy->parent_id);
-        $title = $parent->title." > ".$title;
-        return CategoryController::getParentsTree($categoy,$title);
+        }
+
+        $parent = Category::find($category->parent_id);
+        $title = $parent->title . ' > ' . $title;
+
+        return CategoryController::getParentsTree($parent,$title);
     }
     /**
      * Display a listing of the resource.
@@ -128,10 +131,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id)
     {
         //
-        $data =  Category::find($id);
+        $data =  Category::find( $id );
         Storage::delete($data->image);
         $data->delete();
         return redirect('/Admin/Category');

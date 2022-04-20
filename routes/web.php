@@ -50,7 +50,7 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
     });
 });
 // Redirect function
-Route::redirect('/trile','test');
+Route::redirect('/tirle','test');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

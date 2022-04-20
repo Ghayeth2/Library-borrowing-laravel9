@@ -15,6 +15,7 @@
 @endsection
 
 
+
 @section('content')
     <!-- Start: Category Filter -->
     <section class="category-filter section-padding">
@@ -435,3 +436,6 @@
 
 
 @endsection
+
+
+

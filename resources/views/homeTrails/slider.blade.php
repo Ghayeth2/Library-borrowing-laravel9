@@ -1,4 +1,4 @@
-<body>
+
 <!-- Start: Slider Section -->
 <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
 
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="item">
+        <div class="item ">
             <figure>
                 <img alt="Home Slide" src="{{asset('assets')}}/images/header-slider/home-v1/header-slide.jpg" />
             </figure>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="item">
+        <div class="item ">
             <figure>
                 <img alt="Home Slide" src="{{asset('assets')}}/images/header-slider/home-v1/header-slide.jpg" />
             </figure>
@@ -59,4 +59,4 @@
     <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
 </div>
 <!-- End: Slider Section -->
-</body>
+
