@@ -41,7 +41,13 @@
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Image</th>
-                                <th scope="col"></th>
+                                <th scope="col">
+                                     <span >
+                                        @if($data->image)
+                                             <img src="{{Storage::url($data->image)}}" style="height: 100px">
+                                         @endif
+                                    </span>
+                                </th>
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Status</th>

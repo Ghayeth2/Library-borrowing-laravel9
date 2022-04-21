@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Categroy</th>
-                                <th scope="col">{{\App\Http\Controllers\Admin\CategoryController::getParentTree(
+                                <th scope="col">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $data->category,$data->category->title)}}</th>
                             </tr>
                             <tr>
@@ -50,7 +50,13 @@
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Image</th>
-                                <th scope="col"></th>
+                                <th scope="col">
+                                    <span >
+                                        @if($data->image)
+                                            <img src="{{Storage::url($data->image)}}" style="height: 100px">
+                                        @endif
+                                    </span>
+                                </th>
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Status</th>

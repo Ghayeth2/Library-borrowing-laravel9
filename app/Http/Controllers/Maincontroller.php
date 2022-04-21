@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class Maincontroller extends Controller
 {
     public function index(){
+       // echo "index";
         return view('homeTrails.homePage');
     }
     public function test(){

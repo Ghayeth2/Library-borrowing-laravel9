@@ -29,7 +29,7 @@
                                     <option value="0" selected="selected">Main Category</option>
                                     @foreach($datalist as $row)
                                         <option value="{{$row->id}}" @if($row->id == $data->category_id) selected="selected"@endif >
-                                            {{\App\Http\Controllers\Admin\CategoryController::getParentTree(
+                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $row,$row->title)}}</option>
                                     @endforeach
                                 </select>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Details</label>
-                                <input type="text" class="form-control" name="detail" placeholder="Details">
+                                <input type="text" class="form-control" name="detail" value="{{$data->detail}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Description</label>
