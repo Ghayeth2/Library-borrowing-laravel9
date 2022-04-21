@@ -29,6 +29,7 @@
                                 <th>Category</th>
                                 <th>Title</th>
                                 <th>Image</th>
+                                <th>Image Gallery</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -48,6 +49,14 @@
                                         @if($row->image)
                                             <img src="{{Storage::url($row->image)}}" style="height: 40px">
                                         @endif
+                                    </span>
+                                    </td>
+                                    <td>
+                                    <span>
+                                        <a href="{{route('Admin.image.index',['bid'=>$row->id])}}"
+                                        onclick="return !window.open(this.href,'','top = 40 left = 100 width = 1100 , height = 700' )">
+                                        <img class="brand-title" src="{{asset('adminPannel')}}/images/gallery.png"
+                                             style="background-color: black" height="40px"></a>
                                     </span>
                                     </td>
                                     <td>{{$row->status}} </td>

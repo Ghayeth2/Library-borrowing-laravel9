@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\adminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\imageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 // Using Maincontroller function
 
-/*                 Prefix  Route   Function           */
+
 Route::get('/test/',[Maincontroller::class,'test'])->name('test');
 Route::get('/',[Maincontroller::class,'index'])->name('index');
 
-
+/*                 Prefix  Route   Function           */
 Route::prefix('Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
     Route::get('/', [adminController::class, 'index2'])->name('index2');
@@ -46,6 +47,14 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
         Route::post('/update/{id}', 'update')->name('update');
         Route::post('/destroy/{id}', 'destroy')->name('destroy');
         Route::get('/', 'index')->name('index');
+
+    });
+    /*                      Admin Image Panel Controller                  */
+    Route::prefix('image')->name('image.')->controller(imageController::class)->group(function () {
+        Route::post('/store/{bid}',  'store')->name('store');
+        Route::post('/update/{bid}/{id}', 'update')->name('update');
+        Route::get('/destroy/{bid}/{id}', 'destroy')->name('destroy');
+        Route::get('/{bid}', 'index')->name('index');
 
     });
 });

@@ -28,16 +28,16 @@
             </li>
 
             <li><a  href="{{route('Admin.Category.index')}}" ><i
-                        class="icon-picture"></i><span class="nav-text">Images</span></a>
+                        class="icon-picture" style="color: darkorange"></i><span class="nav-text">Images</span></a>
             </li>
             <li><a href="{{route('Admin.Category.index')}}" ><i class="icon-question"></i><span
                         class="nav-text">FAQ</span></a></li>
             <li><a  href="{{route('Admin.Category.index')}}" ><i
-                        class="icon-envelope-letter"></i><span class="nav-text">Messages</span></a>
+                        class="icon-envelope-letter" style="color: darkgreen"></i><span class="nav-text">Messages</span></a>
             </li>
            <!-- <li class="nav-label"></li>-->
             <li><a href="{{route('Admin.Category.index')}}" ><i
-                        class="icon-people"></i><span class="nav-text">User</span></a>
+                        class="icon-people" style="color: blue"></i><span class="nav-text">User</span></a>
             </li>
 
             <!--<li class="nav-label">Extra</li>-->
