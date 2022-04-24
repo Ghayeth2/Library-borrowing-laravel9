@@ -13,6 +13,7 @@
     <link href="{{asset('adminPannel')}}/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="{{asset('adminPannel')}}/css/style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/99b277cd45.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
     @yield('head')
 

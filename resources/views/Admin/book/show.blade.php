@@ -46,7 +46,7 @@
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Detail</th>
-                                <th scope="col">{{$data->detail}}</th>
+                                <th scope="col">{!! $data->detail !!}</th>
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Image</th>
