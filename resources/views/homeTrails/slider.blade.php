@@ -4,9 +4,11 @@
 
     <!-- Carousel slides -->
     <div class="carousel-inner">
+        @foreach($sliderdata as $row)
         <div class="item active">
             <figure>
-                <img alt="Home Slide" src="{{asset('assets')}}/images/header-slider/home-v1/header-slide.jpg" />
+                <img alt="Home Slide" src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}"
+                     style="width: 1920px; height: 1000px; "/>
             </figure>
             <div class="container">
                 <div class="carousel-caption">
@@ -20,6 +22,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
         <div class="item ">
             <figure>
                 <img alt="Home Slide" src="{{asset('assets')}}/images/header-slider/home-v1/header-slide.jpg" />
