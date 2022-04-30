@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
-            $table->id();
+       Schema::table('books', function (Blueprint $table) {
+          /*   $table->id();
             $table->foreignId('category_id')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->string('title');
@@ -23,8 +23,12 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('detail')->nullable();
             $table->string('status',length: 6)->nullable();
-            $table->timestamps();
+            $table->timestamps();*/
+           $table->longText('detail')->change();
         });
+
+
+
     }
 
     /**

@@ -34,7 +34,7 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::post('/destroy/{id}', 'destroy')->name('destroy');
         Route::get('/','index' )->name('index');
 
     });
@@ -45,15 +45,17 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');
-        Route::post('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
         Route::get('/', 'index')->name('index');
 
     });
     /*                      Admin Image Panel Controller                  */
     Route::prefix('image')->name('image.')->controller(imageController::class)->group(function () {
         Route::post('/store/{bid}',  'store')->name('store');
+        /* the presedence is important as C language when sending variables to any Function */
         Route::post('/update/{bid}/{id}', 'update')->name('update');
         Route::get('/destroy/{bid}/{id}', 'destroy')->name('destroy');
+        /* the presedence is important as C language when sending variables to any Function */
         Route::get('/{bid}', 'index')->name('index');
 
     });

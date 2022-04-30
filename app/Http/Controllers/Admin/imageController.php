@@ -93,7 +93,7 @@ class imageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,$bid)
+    public function destroy($bid,$id)
     {
         $data =  Image::find( $id );
         if($data->image && Storage::disk('public')->exists($data->image)){

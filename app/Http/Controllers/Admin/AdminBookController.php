@@ -102,7 +102,7 @@ class AdminBookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book, $id)
+    public function update(Request $request, $id)
     {
         //
         $data =  Book::find($id);
@@ -126,7 +126,7 @@ class AdminBookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book,$id)
+    public function destroy($id)
     {
         //
         $data =  Book::find($id);
