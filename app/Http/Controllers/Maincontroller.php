@@ -10,9 +10,10 @@ class Maincontroller extends Controller
     public function index(){
        // echo "index";
         $sliderdata = Book::limit(6)->get();
-        $sliderdata = Book::limit(6)->get();
+        $booklist = Book::limit(6)->get();
         return view('homeTrails.homePage',[
-            'sliderdata'=> $sliderdata
+            'sliderdata'=> $sliderdata,
+            'booklist'=> $booklist
         ]);
     }
     public function test(){
