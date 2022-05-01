@@ -45,7 +45,7 @@
                                     <td>
                                     <span >
                                         @if($row->image)
-                                            <img src="{{Storage::url($row->image)}}" style="height: 40px">
+                                            <img src="{{Storage::url($row->image)}}" style="">
                                         @endif
                                     </span>
                                     </td>

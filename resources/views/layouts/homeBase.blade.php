@@ -34,13 +34,13 @@
     @include("homeTrails.header")
 @show
 @section('slider')
-@show
+@endsection
 @section('search')
 
-@show
+@endsection
 @section('welcome')
 
-@show
+@endsection
 
 <div class="container">
     @yield('content')
@@ -48,7 +48,8 @@
 
 @section('footer')
     @include("homeTrails.footer")
-@show
+@endsection
+@yield('footer')
 <!-- jQuery Latest Version 1.x -->
 <script type="text/javascript" src="{{asset('assets')}}/js/jquery-1.12.4.min.js"></script>
 

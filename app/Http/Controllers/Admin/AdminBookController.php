@@ -52,6 +52,9 @@ class AdminBookController extends Controller
         $data->category_id = $request->category_id;
         $data->user_id = 0; //$request->category_id;
         $data->title = $request->title;
+        $data->author = $request->author;
+        $data->isbn = $request->isbn;
+        $data->edition = $request->edition;
         $data->keyword = $request->keyword;
         $data->description = $request->description;
         $data->status = $request->status;
@@ -109,6 +112,9 @@ class AdminBookController extends Controller
         $data->category_id = $request->category_id;
         $data->user_id = 0; //$request->category_id;
         $data->title = $request->title;
+        $data->author = $request->author;
+        $data->isbn = $request->isbn;
+        $data->edition = $request->edition;
         $data->keyword = $request->keyword;
         $data->description = $request->description;
         $data->status = $request->status;

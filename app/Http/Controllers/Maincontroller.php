@@ -16,6 +16,14 @@ class Maincontroller extends Controller
             'booklist'=> $booklist
         ]);
     }
+
+    public function book($id){
+        // echo "index";
+        $data = Book::find($id);
+        return view('homeTrails.bookDetails',[
+            'data'=> $data
+        ]);
+    }
     public function test(){
         //echo "Test Controller Page";
         return view('homeTrails.test2');

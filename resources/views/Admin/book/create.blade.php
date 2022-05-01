@@ -63,6 +63,18 @@
                                 <input type="text" class="form-control" name="description" placeholder="Description">
                             </div>
                             <div class="form-group col-md-6">
+                                <label>Author</label>
+                                <input type="text" class="form-control" name="author" placeholder="Author">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>ISBN</label>
+                                <input type="text" class="form-control" name="isbn" placeholder="ISBN">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Edition</label>
+                                <input type="text" class="form-control" name="edition" placeholder="Edition">
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label>Image</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="image">

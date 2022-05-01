@@ -36,6 +36,18 @@
                                 <th scope="col">{{$data->title}}</th>
                             </tr>
                             <tr>
+                                <th scope="col" style="color: black">Author</th>
+                                <th scope="col">{{$data->author}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="color: black">ISBN</th>
+                                <th scope="col">{{$data->isbn}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="color: black">Edition</th>
+                                <th scope="col">{{$data->edition}}</th>
+                            </tr>
+                            <tr>
                                 <th scope="col" style="color: black">Categroy</th>
                                 <th scope="col">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $data->category,$data->category->title)}}</th>

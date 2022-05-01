@@ -30,6 +30,9 @@
                                 <th>Id</th>
                                 <th>Category</th>
                                 <th>Title</th>
+                                <th>Author</th>
+                                <th>ISBN</th>
+                                <th>Edition</th>
                                 <th>Image</th>
                                 <th>Image Gallery</th>
                                 <th>Status</th>
@@ -46,6 +49,9 @@
                                     <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $row->category,$row->category->title)}}</td>
                                     <td>{{$row->title}}</td>
+                                    <td>{{$row->author}}</td>
+                                    <td>{{$row->isbn}}</td>
+                                    <td>{{$row->edition}}</td>
                                     <td>
                                     <span >
                                         @if($row->image)

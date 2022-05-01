@@ -43,6 +43,18 @@
                                 <input type="text" class="form-control" value="{{$data->title}}" name="title">
                             </div>
                             <div class="form-group col-md-6">
+                                <label>Author</label>
+                                <input type="text" class="form-control" value="{{$data->author}}" name="author">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>ISBN</label>
+                                <input type="text" class="form-control" value="{{$data->isbn}}" name="isbn">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Edition</label>
+                                <input type="text" class="form-control" value="{{$data->edition}}" name="edition">
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label>Keywords</label>
                                 <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword" >
                             </div>
