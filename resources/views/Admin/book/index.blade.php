@@ -47,7 +47,7 @@
                                     <td><a href="javascript:void(0)">{{$row->id}}</a>
                                     </td>
                                     <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
-                                                 $row->category,$row->category->title)}}</td>
+                                                 $row->category?? 'no title',$row->category->title??'no title')}}</td>
                                     <td>{{$row->title}}</td>
                                     <td>{{$row->author}}</td>
                                     <td>{{$row->isbn}}</td>

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test/',[Maincontroller::class,'test'])->name('test');
 Route::get('/',[Maincontroller::class,'index'])->name('index');
 Route::get('/book/{id}',[Maincontroller::class,'book'])->name('book');
+Route::get('/categorybooks/{id}/{slug}',[Maincontroller::class,'categorybooks'])->name('categorybooks');
 
 /*                 Prefix  Route   Function           */
 Route::prefix('Admin')->name('Admin.')->group(function () {

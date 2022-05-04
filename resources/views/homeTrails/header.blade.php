@@ -88,17 +88,24 @@
                         <div class="navbar-collapse hidden-sm hidden-xs">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown active">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index-2.html">Home</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index-2.html">Home V1</a></li>
-                                        <li><a href="home-v2.html">Home V2</a></li>
-                                        <li><a href="home-v3.html">Home V3</a></li>
-                                    </ul>
+                                    <a  href="index-2.html">Home</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
+                                    @php
+                                        $mainCategories = \App\Http\Controllers\Maincontroller::maincategorylist();
+                                    @endphp
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Categories</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
+                                        @foreach($mainCategories as $row)
+                                        <li class="dropdown ">
+                                            <a  href="#" style="text-decoration-color: black;  " >{{$row->title}}</a>
+                                            <ul class="dropdown-menu">
+                                                @if(count($row->children))
+                                                    @include('homeTrails.categorytree',['children'=>$row->children])
+                                                @endif
+                                            </ul>
+                                        </li>
+                                        @endforeach
                                         <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
                                         <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
                                         <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>

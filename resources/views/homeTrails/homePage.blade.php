@@ -39,16 +39,15 @@
         </div>
         <div id="category-filter">
             <ul class="category-list">
-                @foreach($booklist as $row)
+
                 <li class="category-item adults">
                     <figure>
-                        <img src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}"
-                             style="width: 480px; height: 360px;" alt="New Releaase" />
+                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-02.jpg" alt="New Releaase" />
                         <figcaption class="bg-orange">
                             <div class="info-block">
-                                <h4>{{$row->title}}</h4>
-                                <span class="author"><strong>Author:</strong> {{$row->author}}</span>
-                                <span class="author"><strong>ISBN:</strong> {{$row->isbn}}</span>
+                                <h4>The Great Gatsby</h4>
+                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
                                 <div class="rating">
                                     <span>☆</span>
                                     <span>☆</span>
@@ -89,7 +88,6 @@
                         </figcaption>
                     </figure>
                 </li>
-                @endforeach
                 <li class="category-item kids-teens">
                     <figure>
                         <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-02.jpg" alt="New Releaase" />
