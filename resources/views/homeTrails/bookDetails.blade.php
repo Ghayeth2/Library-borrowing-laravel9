@@ -1,7 +1,7 @@
 
 @extends('layouts.homeBase')
 
-@section('title', 'Book Detail')
+@section('title', $data->title)
 
 
 @section('content')

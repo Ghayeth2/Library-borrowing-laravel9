@@ -33,12 +33,14 @@ class Maincontroller extends Controller
     }
     public function categorybooks($id){
         // echo "index";
-        $data = Book::find($id);
-        $images = DB::table('images')->where('book_id',$id)->get();
+        echo 'category books page ';
 
-        return view('homeTrails.bookDetails',[
-            'data'=> $data,
-            'images'=>$images
+        $category = Category::find($id);
+        $books = DB::table('books')->where('category_id',$id)->get();
+
+        return view('homeTrails.categorybooks',[
+            'category'=> $category,
+            'books'=>$books
         ]);
     }
     public function test(){

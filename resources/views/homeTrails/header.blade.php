@@ -98,7 +98,7 @@
                                     <ul class="dropdown-menu">
                                         @foreach($mainCategories as $row)
                                         <li class="dropdown ">
-                                            <a  href="#" style="text-decoration-color: black;  " >{{$row->title}}</a>
+                                            <a  href="" style="text-decoration-color: black;  " >{{$row->title}}</a>
                                             <ul class="dropdown-menu">
                                                 @if(count($row->children))
                                                     @include('homeTrails.categorytree',['children'=>$row->children])
