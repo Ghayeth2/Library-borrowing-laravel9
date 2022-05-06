@@ -1,7 +1,10 @@
 
 @extends('layouts.homeBase')
 
-@section('title', 'Library')
+@section('title', $settings->title)
+@section('description',$settings->description)
+@section('keyword', $settings->keyword)
+@section('icon',\Illuminate\Support\Facades\Storage::url($settings->icon))
 @section('slider')
         @include('homeTrails.slider')
 

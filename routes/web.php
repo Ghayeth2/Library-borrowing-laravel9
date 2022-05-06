@@ -29,6 +29,9 @@ Route::get('/categorybooks/{id}/{slug}',[Maincontroller::class,'categorybooks'])
 Route::prefix('Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
     Route::get('/', [adminController::class, 'index2'])->name('index2');
+    /*                        General Admin Controller                             */
+    Route::get('/settings', [adminController::class, 'settings'])->name('settings');
+    Route::get('/settingsupdate', [adminController::class, 'settingsupdate'])->name('settings.update');
     /*                      Admin Category Panel Controller                  */
     Route::prefix('Category')->name('Category.')->controller(CategoryController::class)->group(function () {
         Route::get('/create', 'create')->name('create');
