@@ -26,10 +26,6 @@
             <li><a  href="{{route('Admin.book.index')}}" ><i class="icon-book-open"
                               style="color: lightsalmon">  </i><span class="nav-text">Books</span></a>
             </li>
-
-            <li><a  href="{{route('Admin.Category.index')}}" ><i
-                        class="icon-picture" style="color: darkorange"></i><span class="nav-text">Images</span></a>
-            </li>
             <li><a href="{{route('Admin.Category.index')}}" ><i class="icon-question"></i><span
                         class="nav-text">FAQ</span></a></li>
             <li><a  href="{{route('Admin.Category.index')}}" ><i

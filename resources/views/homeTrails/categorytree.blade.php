@@ -9,6 +9,7 @@
                 @else
                     <li><a href="{{route('categorybooks',['{id}'=>$subcategory->id,'{slug}'=>$subcategory->title])}}">{{$subcategory->title}}</a> </li>
                 @endif
+        @endif
             </ul>
     </li>
 @endforeach
