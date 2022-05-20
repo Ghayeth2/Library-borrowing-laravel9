@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 // Using Maincontroller function
 
 
+
 Route::get('/test/',[Maincontroller::class,'test'])->name('test');
 Route::get('/',[Maincontroller::class,'index'])->name('index');
 Route::get('/book/{id}',[Maincontroller::class,'book'])->name('book');
