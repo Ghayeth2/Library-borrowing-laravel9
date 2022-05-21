@@ -22,8 +22,11 @@ class adminController extends Controller
         return view('Admin.settings',['data'=>$data]);
     }
     public function settingsupdate(Request $request){
+        echo "Settings Update Area";
+        exit();
+        $data = Settings::find($id);
        $id = $request->input('id');
-       $data = Settings::find($id);
+
        $data->title = $request->input('title');
        $data->keyword = $request->input('keyword');
        $data->description = $request->input('description');

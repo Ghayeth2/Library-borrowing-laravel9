@@ -22,10 +22,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/test/',[Maincontroller::class,'test'])->name('test');
-Route::get('/',[Maincontroller::class,'index'])->name('index');
+
 Route::get('/book/{id}',[Maincontroller::class,'book'])->name('book');
 Route::get('/categorybooks/{id}/{slug}',[Maincontroller::class,'categorybooks'])->name('categorybooks');
-
+/*                 Home Pages Routes           */
+Route::get('/',[Maincontroller::class,'index'])->name('home');
+Route::get('/about',[Maincontroller::class,'about'])->name('about');
+Route::get('/contact',[Maincontroller::class,'contact'])->name('contact');
+Route::get('/references',[Maincontroller::class,'references'])->name('references');
 /*                 Prefix  Route   Function           */
 Route::prefix('Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */

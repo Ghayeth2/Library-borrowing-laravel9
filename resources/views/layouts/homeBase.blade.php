@@ -38,6 +38,10 @@
 @section('search')
 
 @show
+@section('pageBanner')
+
+@show
+
 @section('welcome')
 
 @show

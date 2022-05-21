@@ -60,6 +60,30 @@
                                                             <input type="text" name="contact" value="{{$data->contact}}" class="form-control">
                                                         </div>
                                                     </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Address</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="address" value="{{$data->address}}" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Phone</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="phone" value="{{$data->phone}}" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Fax</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="fax" value="{{$data->fax}}" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="email" value="{{$data->email}}" class="form-control">
+                                                        </div>
+                                                    </div>
 
                                                     <div class="form-group row">
                                                         <label class="col-sm-2 col-form-label">Icon</label>
@@ -150,48 +174,58 @@
                                 <div id="v-pills-contact" class="tab-pane fade">
 
                                     <form action="{{route('Admin.settings.update')}}" method="post" enctype="multipart/form-data">
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Address</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="address" value="{{$data->address}}" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Phone</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="phone" value="{{$data->phone}}" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Fax</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="fax" value="{{$data->fax}}" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="email" value="{{$data->email}}" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-xxl-12">
+                                                <div class="card">
+                                                    <label for="exampleInputEmail">Contact</label>
+                                                    <textarea class="form-control" name="contact" id="contact">
+
+                                                </textarea>
+                                                    <script>
+                                                        ClassicEditor
+                                                            .create( document.querySelector( '#contact' ) )
+                                                            .then( editor => {
+                                                                console.log( editor );
+                                                            } )
+                                                            .catch( error => {
+                                                                console.error( error );
+                                                            } );
+                                                    </script>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-sm-10">
+                                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div id="v-pills-aboutus" class="tab-pane fade">
                                     <form action="{{route('Admin.settings.update')}}" method="post" enctype="multipart/form-data">
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">About Us</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="aboutus" value="{{$data->aboutus}}" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-xxl-12">
+                                                <div class="card">
+                                                    <label for="exampleInputEmail">About Us</label>
+                                                    <textarea class="form-control" name="aboutus" id="aboutus">
+
+                                                </textarea>
+                                                    <script>
+                                                        ClassicEditor
+                                                            .create( document.querySelector( '#aboutus' ) )
+                                                            .then( editor => {
+                                                                console.log( editor );
+                                                            } )
+                                                            .catch( error => {
+                                                                console.error( error );
+                                                            } );
+                                                    </script>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-sm-10">
+                                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -202,12 +236,12 @@
                                             <div class="col-xl-12 col-xxl-12">
                                                 <div class="card">
                                                     <label for="exampleInputEmail">References</label>
-                                                    <textarea class="form-control" name="detail" id="detail">
+                                                    <textarea class="form-control" name="references" id="references">
 
                                                 </textarea>
                                                     <script>
                                                         ClassicEditor
-                                                            .create( document.querySelector( '#detail' ) )
+                                                            .create( document.querySelector( '#references' ) )
                                                             .then( editor => {
                                                                 console.log( editor );
                                                             } )

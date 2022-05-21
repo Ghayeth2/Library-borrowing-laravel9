@@ -7,6 +7,7 @@
 @section('icon', \Illuminate\Support\Facades\Storage::url($settings->icon))
 @section('slider')
         @include('homeTrails.slider')
+
 @endsection
 @section('search')
     @include('homeTrails.search')

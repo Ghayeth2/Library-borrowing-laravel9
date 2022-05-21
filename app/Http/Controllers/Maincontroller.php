@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,11 +15,33 @@ class Maincontroller extends Controller
     }
     public function index(){
        // echo "index";
+        $page = "home";
         $sliderdata = Book::limit(6)->get();
         $booklist = Book::limit(6)->get();
+        $settings = Settings::first();
         return view('homeTrails.homePage',[
             'sliderdata'=> $sliderdata,
-            'booklist'=> $booklist
+            'booklist'=> $booklist,
+            'page'=> $page,
+            'settings'=> $settings
+        ]);
+    }
+    public function about(){
+        $settings = Settings::first();
+        return view('homeTrails.aboutus',[
+            'settings'=> $settings
+        ]);
+    }
+    public function contact(){
+        $settings = Settings::first();
+        return view('homeTrails.contactUs',[
+            'settings'=> $settings
+        ]);
+    }
+    public function references(){
+        $settings = Settings::first();
+        return view('homeTrails.references',[
+            'settings'=> $settings
         ]);
     }
 
