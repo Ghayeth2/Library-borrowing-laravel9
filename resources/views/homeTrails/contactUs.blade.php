@@ -105,14 +105,6 @@
                                             <div class="row">
                                                 <div class="contact-area">
                                                     <div class="container">
-                                                        <div class="col-md-5 col-md-offset-1 border-gray-left">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="contact-map bg-light margin-left">
-                                                                        <div class="company-map" id="map"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <div class="col-md-5 border-gray-right">
                                                             <div class="row">
@@ -120,41 +112,42 @@
                                                                     <div class="contact-form bg-light margin-right">
                                                                         <h2>Send us a message</h2>
                                                                         <span class="underline left"></span>
+
                                                                         <div class="contact-fields">
-                                                                            <form id="contact" name="contact" action="http://libraria.demo.presstigers.com/contact.html" method="post" >
+                                                                            @include('homeTrails.message')
+                                                                            <form   action="{{route('savemessage')}}" method="post" >
+                                                                                @csrf
                                                                                 <div class="row">
                                                                                     <div class="col-md-6 col-sm-6">
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="text" placeholder="First Name" name="first-name" id="first-name" size="30" value="" aria-required="true" />
+                                                                                            <input class="form-control" type="text" placeholder="Full Name" name="name" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-md-6 col-sm-6">
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="text" placeholder="Last Name" name="last-name" id="last-name" size="30" value="" aria-required="true" />
+                                                                                            <input class="form-control" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email" name="email"  />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-md-6 col-sm-6">
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email" name="email" id="email" size="30" value="" aria-required="true" />
+                                                                                            <input class="form-control" type="text" placeholder="Phone Number" name="phone"  />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-md-6 col-sm-6">
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="text" placeholder="Phone Number" name="phone" id="phone" size="30" value="" aria-required="true" />
+                                                                                            <input class="form-control" type="text" placeholder="Subject" name="subject" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6 col-sm-6">
+                                                                                        <div class="form-group">
+                                                                                            <textarea class="form-control" type="text" placeholder=" Your Message ..." name="message" > </textarea>
                                                                                         </div>
                                                                                     </div>
 
                                                                                     <div class="col-sm-12">
                                                                                         <div class="form-group form-submit">
-                                                                                            <input class="btn btn-default" id="submit-contact-form" type="button" name="submit" value="Send Message"  />
+                                                                                            <input class="btn btn-default"  type="submit" name="submit" value="Send Message"  />
                                                                                         </div>
-                                                                                    </div>
-                                                                                    <div id="success">
-                                                                                        <span>Your message was sent successfully! Our team will contact you soon.</span>
-                                                                                    </div>
-
-                                                                                    <div id="error">
-                                                                                        <span>Something went wrong, try refreshing and submitting the form again.</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </form>

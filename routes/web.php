@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\adminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\imageController;
+use App\Http\Controllers\Admin\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,15 +31,16 @@ Route::get('/',[Maincontroller::class,'index'])->name('home');
 Route::get('/about',[Maincontroller::class,'about'])->name('about');
 Route::get('/contact',[Maincontroller::class,'contact'])->name('contact');
 Route::get('/references',[Maincontroller::class,'references'])->name('references');
+Route::get('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
 /*                 Prefix  Route   Function           */
-Route::prefix('Admin')->name('Admin.')->group(function () {
+Route::prefix('/Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
     Route::get('/', [adminController::class, 'index2'])->name('index2');
     /*                        General Admin Controller                             */
     Route::get('/settings', [adminController::class, 'settings'])->name('settings');
     Route::get('/settingsupdate', [adminController::class, 'settingsupdate'])->name('settings.update');
     /*                      Admin Category Panel Controller                  */
-    Route::prefix('Category')->name('Category.')->controller(CategoryController::class)->group(function () {
+    Route::prefix('/Category')->name('Category.')->controller(CategoryController::class)->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
@@ -49,7 +51,7 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
 
     });
     /*                      Admin Book Panel Controller                  */
-    Route::prefix('book')->name('book.')->controller(AdminBookController::class)->group(function () {
+    Route::prefix('/book')->name('book.')->controller(AdminBookController::class)->group(function () {
         Route::get('/create',  'create')->name('create');
         Route::post('/store',  'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
@@ -60,13 +62,22 @@ Route::prefix('Admin')->name('Admin.')->group(function () {
 
     });
     /*                      Admin Image Panel Controller                  */
-    Route::prefix('image')->name('image.')->controller(imageController::class)->group(function () {
+    Route::prefix('/image')->name('image.')->controller(imageController::class)->group(function () {
         Route::post('/store/{bid}',  'store')->name('store');
         /* the presedence is important as C language when sending variables to any Function */
         Route::post('/update/{bid}/{id}', 'update')->name('update');
         Route::get('/destroy/{bid}/{id}', 'destroy')->name('destroy');
         /* the presedence is important as C language when sending variables to any Function */
         Route::get('/{bid}', 'index')->name('index');
+
+    });
+    /*                      Admin Message Routes                  */
+    Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::post('/store',  'store')->name('store');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/', 'index')->name('index');
 
     });
 });

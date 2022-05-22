@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Messages;
 use App\Models\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +38,18 @@ class Maincontroller extends Controller
         return view('homeTrails.contactUs',[
             'settings'=> $settings
         ]);
+    }
+    public function savemessage(Request $request){
+        dd($request);
+        $data = new Messages();
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+        $data->ip = $request->ip();
+        $data->save();
+        return redirect()->route('contact')->with('info','Your message has been sent .');
     }
     public function references(){
         $settings = Settings::first();

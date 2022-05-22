@@ -28,7 +28,7 @@
             </li>
             <li><a href="{{route('Admin.Category.index')}}" ><i class="icon-question"></i><span
                         class="nav-text">FAQ</span></a></li>
-            <li><a  href="{{route('Admin.Category.index')}}" ><i
+            <li><a  href="{{route('Admin.message.index')}}" ><i
                         class="icon-envelope-letter" style="color: darkgreen"></i><span class="nav-text">Messages</span></a>
             </li>
            <!-- <li class="nav-label"></li>-->
@@ -37,7 +37,7 @@
             </li>
 
             <!--<li class="nav-label">Extra</li>-->
-            <li><a  href="{{route('Admin.Category.index')}}" ><i
+            <li><a  href="{{route('Admin.settings')}}" ><i
                         class="icon-wrench" style="color: red"></i><span class="nav-text">Settings</span></a>
             </li>
         </ul>
