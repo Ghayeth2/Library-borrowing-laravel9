@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\FAQ;
 use App\Models\Messages;
 use App\Models\Settings;
 use Illuminate\Http\Request;
@@ -31,6 +32,14 @@ class Maincontroller extends Controller
         $settings = Settings::first();
         return view('homeTrails.aboutus',[
             'settings'=> $settings
+        ]);
+    }
+    public function faq(){
+        $settings = Settings::first();
+        $datalist = FAQ::all();
+        return view('homeTrails.faq',[
+            'settings'=> $settings,
+            'datalist'=> $datalist
         ]);
     }
     public function contact(){

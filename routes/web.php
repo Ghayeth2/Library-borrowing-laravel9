@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\adminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\imageController;
 use App\Http\Controllers\Admin\MessageController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ Route::get('/',[Maincontroller::class,'index'])->name('home');
 Route::get('/about',[Maincontroller::class,'about'])->name('about');
 Route::get('/contact',[Maincontroller::class,'contact'])->name('contact');
 Route::get('/references',[Maincontroller::class,'references'])->name('references');
+Route::get('/faq',[Maincontroller::class,'faq'])->name('faq');
 Route::get('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
 /*                 Prefix  Route   Function           */
 Route::prefix('/Admin')->name('Admin.')->group(function () {
@@ -74,6 +76,17 @@ Route::prefix('/Admin')->name('Admin.')->group(function () {
     /*                      Admin Message Routes                  */
     Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
         Route::post('/store',  'store')->name('store');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/', 'index')->name('index');
+
+    });
+    /*                      Admin FAQ Panel Controller                  */
+    Route::prefix('/faq')->name('faq.')->controller(FaqController::class)->group(function () {
+        Route::get('/create',  'create')->name('create');
+        Route::post('/store',  'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');

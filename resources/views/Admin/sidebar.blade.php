@@ -26,7 +26,7 @@
             <li><a  href="{{route('Admin.book.index')}}" ><i class="icon-book-open"
                               style="color: lightsalmon">  </i><span class="nav-text">Books</span></a>
             </li>
-            <li><a href="{{route('Admin.Category.index')}}" ><i class="icon-question"></i><span
+            <li><a href="{{route('Admin.faq.index')}}" ><i class="icon-question"></i><span
                         class="nav-text">FAQ</span></a></li>
             <li><a  href="{{route('Admin.message.index')}}" ><i
                         class="icon-envelope-letter" style="color: darkgreen"></i><span class="nav-text">Messages</span></a>

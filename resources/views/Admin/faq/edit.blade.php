@@ -1,9 +1,11 @@
 
 @extends('layouts.adminBase')
 
-@section('title', 'Add Book')
+@section('title', 'Edit Book')
 
-
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 
 @section('content')
     <!--**********************************
@@ -12,22 +14,24 @@
     <div class="content-body">
 
 
-           <h3>Add Book</h3>
+           <h3>Edit Book</h3>
         <!-- row -->
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Add Book</h4>
+                <h4 class="card-title">Edit {{$data->title}}</h4>
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('Admin.book.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('Admin.book.update',['id'=>$data->id])}}"method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Parent Category</label>
                                 <select id="inputState" class="form-control" name="category_id">
-                                    @foreach($data as $row)
-                                        <option value="{{$row->id}}">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
+                                    <option value="0" selected="selected">Main Category</option>
+                                    @foreach($datalist as $row)
+                                        <option value="{{$row->id}}" @if($row->id == $data->category_id) selected="selected"@endif >
+                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $row,$row->title)}}</option>
                                     @endforeach
                                 </select>
@@ -36,11 +40,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Title</label>
-                                <input type="text" class="form-control" name="title" placeholder="title">
+                                <input type="text" class="form-control" value="{{$data->title}}" name="title">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Author</label>
+                                <input type="text" class="form-control" value="{{$data->author}}" name="author">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>ISBN</label>
+                                <input type="text" class="form-control" value="{{$data->isbn}}" name="isbn">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Edition</label>
+                                <input type="text" class="form-control" value="{{$data->edition}}" name="edition">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Keywords</label>
-                                <input type="text" class="form-control" name="keyword" placeholder="Keyword">
+                                <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword" >
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail">Details</label>
@@ -60,19 +76,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Description</label>
-                                <input type="text" class="form-control" name="description" placeholder="Description">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Author</label>
-                                <input type="text" class="form-control" name="author" placeholder="Author">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>ISBN</label>
-                                <input type="text" class="form-control" name="isbn" placeholder="ISBN">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Edition</label>
-                                <input type="text" class="form-control" name="edition" placeholder="Edition">
+                                <input type="text" class="form-control" name="description"  value="{{$data->description}}" >
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Image</label>
@@ -88,15 +92,16 @@
                                 <label>Status</label>
                                 <select id="inputState" class="form-control" name="status">
                                     <option selected="">Choose...</option>
+                                    <option selected>{{$data->status}}</option>
                                     <option>True</option>
                                     <option>False</option>
                                 </select>
                             </div>
+
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
-
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>
