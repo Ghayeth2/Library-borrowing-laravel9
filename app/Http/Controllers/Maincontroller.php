@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Comments;
 use App\Models\FAQ;
 use App\Models\Messages;
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Maincontroller extends Controller
@@ -49,7 +51,7 @@ class Maincontroller extends Controller
         ]);
     }
     public function savemessage(Request $request){
-        dd($request);
+        //dd($request);
         $data = new Messages();
         $data->name = $request->input('name');
         $data->email = $request->input('email');
@@ -59,6 +61,17 @@ class Maincontroller extends Controller
         $data->ip = $request->ip();
         $data->save();
         return redirect()->route('contact')->with('info','Your message has been sent .');
+    }
+    public function savecomment(Request $request){
+       //dd($request);
+        $data = new Comments();
+        $data->user_id = Auth::id();
+        $data->book_id = $request->input('book_id');
+        $data->comment = $request->input('comment');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+        $data->save();
+        return redirect()->route('book',['id'=>$request->input('book_id')])->with('info','Your message has been sent .');
     }
     public function references(){
         $settings = Settings::first();
@@ -71,14 +84,15 @@ class Maincontroller extends Controller
         // echo "index";
         $data = Book::find($id);
         $images = DB::table('images')->where('book_id',$id)->get();
+        $review = Comments::where('book_id',$id)->get();
         return view('homeTrails.bookDetails',[
             'data'=> $data,
-            'images'=>$images
+            'images'=>$images,
+            'review'=> $review
         ]);
     }
     public function categorybooks($id){
         // echo "index";
-        echo 'category books page ';
 
         $category = Category::find($id);
         $books = DB::table('books')->where('category_id',$id)->get();

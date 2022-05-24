@@ -5,9 +5,11 @@
 @section('description', $settings->description)
 @section('keyword', $settings->keyword)
 @section('icon', \Illuminate\Support\Facades\Storage::url($settings->icon))
+
 @section('slider')
         @include('homeTrails.slider')
 @endsection
+
 @section('search')
     @include('homeTrails.search')
 
@@ -41,15 +43,16 @@
         </div>
         <div id="category-filter">
             <ul class="category-list">
-
+                @foreach($booklist as $row)
                 <li class="category-item adults">
                     <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-02.jpg" alt="New Releaase" />
+                        <img src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}"
+                             style="width: 480px; height: 214px; "/>
                         <figcaption class="bg-orange">
                             <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                <h4>{{$row->title}}</h4>
+                                <span class="author"><strong>Author:</strong> {{$row->author}}</span>
+                                <span class="author"><strong>ISBN:</strong> {{$row->isbn}}</span>
                                 <div class="rating">
                                     <span>☆</span>
                                     <span>☆</span>
@@ -57,8 +60,8 @@
                                     <span>☆</span>
                                     <span>☆</span>
                                 </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                <p>{{$row->description}}</p>
+                                <a href="{{route('book',['id'=>$row->id])}}">Read More <i class="fa fa-long-arrow-right"></i></a>
                                 <ol>
                                     <li>
                                         <a href="#">
@@ -90,342 +93,7 @@
                         </figcaption>
                     </figure>
                 </li>
-                <li class="category-item kids-teens">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-02.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="category-item video">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-03.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="category-item audio">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-04.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="category-item books">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-05.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="category-item magazines">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-06.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="category-item adults">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-07.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="category-item kids-teens">
-                    <figure>
-                        <img src="{{asset('assets')}}/images/category-filter/home-v1/category-filter-img-08.jpg" alt="New Releaase" />
-                        <figcaption class="bg-orange">
-                            <div class="info-block">
-                                <h4>The Great Gatsby</h4>
-                                <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                <span class="author"><strong>ISBN:</strong> 9781581573268</span>
-                                <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-                                <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                <ol>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-share-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </li>
+                @endforeach
             </ul>
             <div class="center-content">
                 <a href="#" class="btn btn-primary">View More</a>

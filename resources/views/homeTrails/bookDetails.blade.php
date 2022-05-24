@@ -131,14 +131,50 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p><strong>Summary:</strong> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
-                                    <ul class="detail-page-listing">
-                                        <li><strong>Length:</strong> 518 pages.</li>
-                                        <li><strong>Language :</strong> Icelandic dialogue; English subtitles.</li>
-                                        <li><strong>Topics:</strong> Friendship, Bullies, Pranks, School</li>
-                                    </ul>
+                                    <p><strong>Summary:</strong> {{$data->description}} </p>
                                     <div class="booksmedia-fullwidth booksmedia-popular-list">
-                                        <h2 class="section-title text-center">Popular Items</h2>
+                                        <h2 class="section-title text-center">Comment & Review Section</h2>
+                                        <div class="contact-fields">
+                                            <form   action="{{route('savecomment')}}" method="post" >
+                                                @csrf
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" name="comment" placeholder="Your Comment"  />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="hidden" name="book_id" value="{{$data->id}}"/>
+                                                        </div>
+                                                    </div>
+
+                                                   <div class="col-md-6 col-sm-6">
+                                                       <div class="form-group">
+                                                           <strong class="text-uppercase">Your Rating : </strong>
+                                                           <div class="rating">
+                                                               <input type="radio" name="rate" id="star5" value="5"><label for="star5"></label>
+                                                               <input type="radio" name="rate" id="star4" value="4"><label for="star4"></label>
+                                                               <input type="radio" name="rate" id="star3" value="3"><label for="star3"></label>
+                                                               <input type="radio" name="rate" id="star2" value="2"><label for="star2"></label>
+                                                               <input type="radio" name="rate" id="star1" value="1"><label for="star1"></label>
+                                                           </div>
+
+                                                       </div>
+                                                   </div>
+                                                    @auth()
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group form-submit">
+                                                            <input class="btn btn-default"  type="submit" name="submit" value="Send Review"  />
+                                                        </div>
+                                                    </div>
+                                                    @else
+                                                        <a href="/login"> <button type="button" class="btn btn-success " >
+                                                                Log In</button></a>
+                                                    @endauth
+                                                </div>
+                                            </form>
+                                        </div>
                                         <span class="underline center"></span>
                                         <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                         <ul class="popular-items-detail-v1">
@@ -576,58 +612,27 @@
                                     <div class="widget widget_recent_entries">
                                         <h4 class="widget-title">On-Order Items</h4>
                                         <ul>
-
+                                                @foreach($review as $row)
                                                 <li>
-                                                    <figure>
-                                                        <img src="images/order-item-01.jpg" alt="product" />
-                                                    </figure>
-                                                    <a href="#">The Sonic Boom</a>
-                                                    <span class="price"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                                    <span><strong>ISBN:</strong> 978158157</span>
+                                                    <span class="price"><strong>User :</strong> {{$row->user->name}}</span>
+                                                    <span><strong>Created at :</strong> {{$row->created_at}}</span>
                                                     <div class="rating">
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
+                                                        <i class="icon icon-star @if($row->rate<1) -o empty @endif"></i>
+                                                        <i class="icon icon-star @if($row->rate<2) -o empty @endif"></i>
+                                                        <i class="icon icon-star @if($row->rate<3) -o empty @endif"></i>
+                                                        <i class="icon icon-star @if($row->rate<4) -o empty @endif"></i>
+                                                        <i class="icon icon-star @if($row->rate<5) -o empty @endif"></i>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </li>
-                                                <li>
-                                                    <figure>
-                                                        <img src="images/order-item-02.jpg" alt="product" />
-                                                    </figure>
-                                                    <a href="#">The Sonic Boom</a>
-                                                    <span class="price"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                                    <span><strong>ISBN:</strong> 978158157</span>
-                                                    <div class="rating">
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
+                                                    <div>
+                                                        {{$row->comment}}
                                                     </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                                <li>
-                                                    <figure>
-                                                        <img src="images/order-item-03.jpg" alt="product" />
-                                                    </figure>
-                                                    <a href="#">The Sonic Boom</a>
-                                                    <span class="price"><strong>Author:</strong> F. Scott Fitzgerald</span>
-                                                    <span><strong>ISBN:</strong> 978158157</span>
-                                                    <div class="rating">
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                        <span>☆</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
+                                               @endforeach
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
+
                                 </aside>
                             </div>
                         </div>

@@ -31,6 +31,9 @@
             <li><a  href="{{route('Admin.message.index')}}" ><i
                         class="icon-envelope-letter" style="color: darkgreen"></i><span class="nav-text">Messages</span></a>
             </li>
+            <li><a  href="{{route('Admin.comment.index')}}" ><i
+                        class="icon-control-end" style="color: lightgray"></i><span class="nav-text">Comments</span></a>
+            </li>
            <!-- <li class="nav-label"></li>-->
             <li><a href="{{route('Admin.Category.index')}}" ><i
                         class="icon-people" style="color: blue"></i><span class="nav-text">User</span></a>

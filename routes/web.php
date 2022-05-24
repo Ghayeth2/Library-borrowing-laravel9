@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\adminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CommentsController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\imageController;
 use App\Http\Controllers\Admin\MessageController;
@@ -23,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/test/',[Maincontroller::class,'test'])->name('test');
-
 Route::get('/book/{id}',[Maincontroller::class,'book'])->name('book');
 Route::get('/categorybooks/{id}/{slug}',[Maincontroller::class,'categorybooks'])->name('categorybooks');
 /*                 Home Pages Routes           */
@@ -33,7 +32,8 @@ Route::get('/about',[Maincontroller::class,'about'])->name('about');
 Route::get('/contact',[Maincontroller::class,'contact'])->name('contact');
 Route::get('/references',[Maincontroller::class,'references'])->name('references');
 Route::get('/faq',[Maincontroller::class,'faq'])->name('faq');
-Route::get('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
+Route::post('/savecomment',[Maincontroller::class,'savecomment'])->name('savecomment');
+Route::post('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
 /*                 Prefix  Route   Function           */
 Route::prefix('/Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
@@ -75,6 +75,15 @@ Route::prefix('/Admin')->name('Admin.')->group(function () {
     });
     /*                      Admin Message Routes                  */
     Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::post('/store',  'store')->name('store');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/', 'index')->name('index');
+
+    });
+    /*                      Admin Comment Routes                  */
+    Route::prefix('/comment')->name('comment.')->controller(CommentsController::class)->group(function () {
         Route::post('/store',  'store')->name('store');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');

@@ -1,6 +1,6 @@
 @extends('layouts.homeBase')
 
-@section('title',  $category->title , 'Book')
+@section('title Book')
 
 
 @section('content')
