@@ -21,15 +21,25 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="topbar-info">
-                                        <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
+                                        @auth
+                                            <a href="mailto:support@libraria.com"><i class="fa fa-user">
+
+                                                </i>{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+
+
                                         <span>/</span>
-                                        <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                            <a href="/userlogout"><i class="fa fa-arrow-left"></i>Logout</a>
+
+                                        @endauth
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="topbar-links">
-                                        <a href="signin.html"><i class="fa fa-lock"></i>Login / Register</a>
+                                        @guest
+                                        <a href="/userlogin"><i class="fa fa-lock"></i>Login / <a href="/userregister">Register</a></a>
+                                        @endguest
                                         <span>|</span>
+
                                         <div class="header-cart dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                                 <i class="fa fa-shopping-cart"></i>

@@ -34,6 +34,9 @@ Route::get('/references',[Maincontroller::class,'references'])->name('references
 Route::get('/faq',[Maincontroller::class,'faq'])->name('faq');
 Route::post('/savecomment',[Maincontroller::class,'savecomment'])->name('savecomment');
 Route::post('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
+Route::get('/userlogout',[Maincontroller::class,'logout'])->name('userlogout');
+Route::view('/userlogin','homeTrails.logIn');
+Route::view('/userregister','homeTrails.register');
 /*                 Prefix  Route   Function           */
 Route::prefix('/Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */

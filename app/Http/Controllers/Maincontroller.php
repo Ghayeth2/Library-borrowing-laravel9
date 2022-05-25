@@ -102,8 +102,10 @@ class Maincontroller extends Controller
             'books'=>$books
         ]);
     }
-    public function test(){
-        //echo "Test Controller Page";
-        return view('homeTrails.test2');
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
