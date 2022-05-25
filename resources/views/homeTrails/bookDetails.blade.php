@@ -112,16 +112,21 @@
                                                     <li><strong>Author:</strong> {{$data->author}}</li>
                                                     <li><strong>ISBN:</strong> {{$data->isbn}}</li>
                                                     <li>
+                                                        @php
+                                                            $average = $data->comment->avg('rate');
+                                                        @endphp
+                                                        {{number_format($average,2)}}
                                                         <div class="rating">
                                                             <strong>Rating:</strong>
-                                                            <span>☆</span>
-                                                            <span>☆</span>
-                                                            <span>☆</span>
-                                                            <span>☆</span>
-                                                            <span>☆</span>
+                                                            <i class="fa fa-star @if($average<1) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if($average<2) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if($average<3) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if($average<4) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if($average<5) -o empty @endif"></i>
                                                         </div>
                                                     </li>
                                                     <li><strong>Edition:</strong> {{$data->edition}}</li>
+                                                    <li> <a href="#"> {{$data->comment->count('id')}}  <strong>Comment(s)</strong> </a></li>
                                                 </ul>
                                             </header>
                                             <div class="entry-content post-buttons">
@@ -610,18 +615,18 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="widget widget_recent_entries">
-                                        <h4 class="widget-title">On-Order Items</h4>
+                                        <h4 class="widget-title">Reviews & Comments</h4>
                                         <ul>
                                                 @foreach($review as $row)
                                                 <li>
                                                     <span class="price"><strong>User :</strong> {{$row->user->name}}</span>
                                                     <span><strong>Created at :</strong> {{$row->created_at}}</span>
                                                     <div class="rating">
-                                                        <i class="icon icon-star @if($row->rate<1) -o empty @endif"></i>
-                                                        <i class="icon icon-star @if($row->rate<2) -o empty @endif"></i>
-                                                        <i class="icon icon-star @if($row->rate<3) -o empty @endif"></i>
-                                                        <i class="icon icon-star @if($row->rate<4) -o empty @endif"></i>
-                                                        <i class="icon icon-star @if($row->rate<5) -o empty @endif"></i>
+                                                        <i class="fa fa-star @if($row->rate<1) -o empty @endif"></i>
+                                                        <i class="fa fa-star @if($row->rate<2) -o empty @endif"></i>
+                                                        <i class="fa fa-star @if($row->rate<3) -o empty @endif"></i>
+                                                        <i class="fa fa-star @if($row->rate<4) -o empty @endif"></i>
+                                                        <i class="fa fa-star @if($row->rate<5) -o empty @endif"></i>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </li>

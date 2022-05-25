@@ -53,12 +53,15 @@
                                 <h4>{{$row->title}}</h4>
                                 <span class="author"><strong>Author:</strong> {{$row->author}}</span>
                                 <span class="author"><strong>ISBN:</strong> {{$row->isbn}}</span>
+                                @php
+                                    $average = $row->comment->avg('rate');
+                                @endphp
                                 <div class="rating">
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
-                                    <span>☆</span>
+                                    <i class="fa fa-star @if($average<1) -o empty @endif"></i>
+                                    <i class="fa fa-star @if($average<2) -o empty @endif"></i>
+                                    <i class="fa fa-star @if($average<3) -o empty @endif"></i>
+                                    <i class="fa fa-star @if($average<4) -o empty @endif"></i>
+                                    <i class="fa fa-star @if($average<5) -o empty @endif"></i>
                                 </div>
                                 <p>{{$row->description}}</p>
                                 <a href="{{route('book',['id'=>$row->id])}}">Read More <i class="fa fa-long-arrow-right"></i></a>
