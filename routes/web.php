@@ -35,7 +35,10 @@ Route::get('/faq',[Maincontroller::class,'faq'])->name('faq');
 Route::post('/savecomment',[Maincontroller::class,'savecomment'])->name('savecomment');
 Route::post('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
 Route::get('/userlogout',[Maincontroller::class,'logout'])->name('userlogout');
+Route::post('/adminlogincheck',[Maincontroller::class,'adminlogincheck'])->name('adminlogincheck');
+Route::view('/adminlogincheck','Admin.login');
 Route::view('/userlogin','homeTrails.logIn');
+Route::view('/adminprofile','Admin.profile');
 Route::view('/userregister','homeTrails.register');
 /*                 Prefix  Route   Function           */
 Route::prefix('/Admin')->name('Admin.')->group(function () {

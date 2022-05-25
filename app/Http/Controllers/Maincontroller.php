@@ -108,4 +108,22 @@ class Maincontroller extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    public function adminlogincheck(Request $request){
+        //dd($request);
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/Admin');
+        }
+
+        return back()->withErrors([
+            'error' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
+    }
+
 }
