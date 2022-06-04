@@ -1,4 +1,3 @@
-
 @extends('layouts.adminBase')
 
 @section('title', 'Show Book')
@@ -18,11 +17,17 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title ">{{$data->title}}</h4>
-                    <a href="{{route('Admin.book.destroy',['id'=>$data->id])}}"> <button type="button" class="btn btn-danger "
-                                                                            onclick="return confirm('Are you sure you want to delete?')">
-                            Delete</button></a>
-                    <a href="{{route('Admin.book.edit',['id'=>$data->id])}}"> <button type="button" class="btn btn-dark " >
-                            Edit</button></a>
+                    <a href="{{route('Admin.book.destroy',['id'=>$data->id])}}">
+                        <button type="button" class="btn btn-danger "
+                                onclick="return confirm('Are you sure you want to delete?')">
+                            Delete
+                        </button>
+                    </a>
+                    <a href="{{route('Admin.book.edit',['id'=>$data->id])}}">
+                        <button type="button" class="btn btn-dark ">
+                            Edit
+                        </button>
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -63,7 +68,7 @@
                             <tr>
                                 <th scope="col" style="color: black">Image</th>
                                 <th scope="col">
-                                    <span >
+                                    <span>
                                         @if($data->image)
                                             <img src="{{Storage::url($data->image)}}" style="height: 100px">
                                         @endif

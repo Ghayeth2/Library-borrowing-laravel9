@@ -1,4 +1,3 @@
-
 @extends('layouts.adminBase')
 
 @section('title', 'Edit Book')
@@ -14,7 +13,7 @@
     <div class="content-body">
 
 
-           <h3>Edit Book</h3>
+        <h3>Edit Book</h3>
         <!-- row -->
         <div class="card">
             <div class="card-header">
@@ -22,7 +21,8 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('Admin.book.update',['id'=>$data->id])}}"method="post" enctype="multipart/form-data">
+                    <form action="{{route('Admin.book.update',['id'=>$data->id])}}" method="post"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -30,7 +30,8 @@
                                 <select id="inputState" class="form-control" name="category_id">
                                     <option value="0" selected="selected">Main Category</option>
                                     @foreach($datalist as $row)
-                                        <option value="{{$row->id}}" @if($row->id == $data->category_id) selected="selected"@endif >
+                                        <option value="{{$row->id}}"
+                                                @if($row->id == $data->category_id) selected="selected"@endif >
                                             {{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
                                                  $row,$row->title)}}</option>
                                     @endforeach
@@ -56,7 +57,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Keywords</label>
-                                <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword" >
+                                <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail">Details</label>
@@ -65,18 +66,19 @@
                                 </textarea>
                                 <script>
                                     ClassicEditor
-                                        .create( document.querySelector( '#detail' ) )
-                                        .then( editor => {
-                                            console.log( editor );
-                                        } )
-                                        .catch( error => {
-                                            console.error( error );
-                                        } );
+                                        .create(document.querySelector('#detail'))
+                                        .then(editor => {
+                                            console.log(editor);
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
                                 </script>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Description</label>
-                                <input type="text" class="form-control" name="description"  value="{{$data->description}}" >
+                                <input type="text" class="form-control" name="description"
+                                       value="{{$data->description}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Image</label>

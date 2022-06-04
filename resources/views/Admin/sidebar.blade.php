@@ -35,7 +35,7 @@
                         class="icon-control-end" style="color: lightgray"></i><span class="nav-text">Comments</span></a>
             </li>
            <!-- <li class="nav-label"></li>-->
-            <li><a href="{{route('Admin.Category.index')}}" ><i
+            <li><a href="{{route('Admin.users.index')}}" ><i
                         class="icon-people" style="color: blue"></i><span class="nav-text">User</span></a>
             </li>
 

@@ -46,7 +46,7 @@
                 @foreach($booklist as $row)
                 <li class="category-item adults">
                     <figure>
-                        <img src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}"
+                        <img src="{{Storage::url($row->image)}}"
                              style="width: 480px; height: 214px; "/>
                         <figcaption class="bg-orange">
                             <div class="info-block">

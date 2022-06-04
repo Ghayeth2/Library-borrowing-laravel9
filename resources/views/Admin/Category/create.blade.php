@@ -1,4 +1,3 @@
-
 @extends('layouts.adminBase')
 
 @section('title', 'Add Category')
@@ -12,7 +11,7 @@
     <div class="content-body">
 
 
-           <h3>Add Category</h3>
+        <h3>Add Category</h3>
         <!-- row -->
         <div class="card">
             <div class="card-header">

@@ -62,10 +62,11 @@
                         <div class="row">
                             <div class="col-md-9 col-md-push-3">
                                 <div class="booksmedia-detail-box">
+                                    @include('homeTrails.message')
                                     <div class="single-book-box">
                                         <div class="post-thumbnail">
                                             <div class="book-list-icon yellow-icon"></div>
-                                            <img alt="Book" src="{{\Illuminate\Support\Facades\Storage::url($data->image)}}"
+                                            <img alt="Book" src="{{Storage::url($data->image)}}"
                                                  style="width: 300px; height: 465px;"/>
                                         </div>
                                         <div class="post-detail">

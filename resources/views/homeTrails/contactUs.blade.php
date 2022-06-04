@@ -113,6 +113,7 @@
                                                                         <h2>Send us a message</h2>
                                                                         <span class="underline left"></span>
                                                                         <div class="contact-fields">
+                                                                            @include('homeTrails.message')
                                                                             <form   action="{{route('savemessage')}}" method="post" >
                                                                                 @csrf
                                                                                 <div class="row">

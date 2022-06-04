@@ -1,4 +1,3 @@
-
 @extends('layouts.adminBase')
 
 @section('title', 'Book List')
@@ -17,10 +16,13 @@
         <h3>Book List</h3>
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header col-sm-1 col-lg-12" >
+                <div class="card-header col-sm-1 col-lg-12">
                     <h4 class="card-title">Category List</h4>
-                    <a href="{{route('Admin.book.create')}}"> <button type="button" class="btn btn-success " >
-                            Add Book</button></a>
+                    <a href="{{route('Admin.book.create')}}">
+                        <button type="button" class="btn btn-success ">
+                            Add Book
+                        </button>
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -53,7 +55,7 @@
                                     <td>{{$row->isbn}}</td>
                                     <td>{{$row->edition}}</td>
                                     <td>
-                                    <span >
+                                    <span>
                                         @if($row->image)
                                             <img src="{{Storage::url($row->image)}}" style="height: 40px">
                                         @endif
@@ -62,7 +64,7 @@
                                     <td>
                                     <span>
                                         <a href="{{route('Admin.image.index',['bid'=>$row->id])}}"
-                                        onclick="return !window.open(this.href,'','top = 40 left = 100 width = 1100 , height = 700' )">
+                                           onclick="return !window.open(this.href,'','top = 40 left = 100 width = 1100 , height = 700' )">
                                         <img class="brand-title" src="{{asset('adminPannel')}}/images/gallery.png"
                                              style="background-color: black" height="40px"></a>
                                     </span>
@@ -71,7 +73,8 @@
                                     <td><a href="{{route('Admin.book.edit',['id'=>$row->id])}}"
                                            class="btn btn-outline-dark">Edit</a></td>
                                     <td><a href="{{route('Admin.book.destroy',['id'=>$row->id])}}"
-                                           class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"
+                                           class="btn btn-outline-danger"
+                                           onclick="return confirm('Are you sure you want to delete?')"
                                         >Delete</a></td>
                                     <td><a href="{{route('Admin.book.show',['id'=>$row->id])}}"
                                            class="btn btn-outline-warning">Show</a></td>

@@ -1,4 +1,3 @@
-
 @extends('layouts.adminBase')
 
 @section('title', 'Add Book')
@@ -12,7 +11,7 @@
     <div class="content-body">
 
 
-           <h3>Add Book</h3>
+        <h3>Add Book</h3>
         <!-- row -->
         <div class="card">
             <div class="card-header">
@@ -49,13 +48,13 @@
                                 </textarea>
                                 <script>
                                     ClassicEditor
-                                        .create( document.querySelector( '#detail' ) )
-                                        .then( editor => {
-                                            console.log( editor );
-                                        } )
-                                        .catch( error => {
-                                            console.error( error );
-                                        } );
+                                        .create(document.querySelector('#detail'))
+                                        .then(editor => {
+                                            console.log(editor);
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
                                 </script>
                             </div>
                             <div class="form-group col-md-6">
