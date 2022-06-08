@@ -109,7 +109,7 @@ class Maincontroller extends Controller
         return redirect('/');
     }
     public function adminlogincheck(Request $request){
-        //dd($request);
+       // dd($request);
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],

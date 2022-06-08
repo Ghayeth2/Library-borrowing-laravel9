@@ -39,14 +39,14 @@ Route::post('/savecomment',[Maincontroller::class,'savecomment'])->name('savecom
 Route::post('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
 Route::get('/userlogout',[Maincontroller::class,'logout'])->name('userlogout');
 Route::post('/adminlogincheck',[Maincontroller::class,'adminlogincheck'])->name('adminlogincheck');
-Route::view('/adminlogin','Admin.login');
-Route::view('/userlogin','homeTrails.logIn');
-Route::view('/adminprofile','Admin.profile');
-Route::view('/userregister','homeTrails.register');
+Route::view('/adminlogin','Admin.login')->name('adminlogin');
+Route::view('/userlogin','homeTrails.logIn')->name('userlogin');;
+Route::view('/adminprofile','Admin.profile')->name('adminprofile');;
+Route::view('/userregister','homeTrails.register')->name('userregister');;
 
 
 /*                 Prefix  Route   Function           */
-Route::prefix('/Admin')->name('Admin.')->group(function () {
+Route::middleware('Admin')->prefix('/Admin')->name('Admin.')->group(function () {
     /*                        Admin Panel Controller                             */
     Route::get('/', [adminController::class, 'index2'])->name('index2');
     /*                        General Admin Controller                             */
