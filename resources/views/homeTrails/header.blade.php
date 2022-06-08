@@ -28,7 +28,7 @@
 
 
                                         <span>/</span>
-                                            <a href="/userlogout"><i class="fa fa-arrow-left"></i>Logout</a>
+                                            <a href="{{route('userlogout')}}"><i class="fa fa-arrow-left"></i>Logout</a>
 
                                         @endauth
                                     </div>
@@ -120,6 +120,16 @@
                                 <li><a href="{{route('references')}}">References</a></li>
                                 <li><a href="{{route('contact')}}">Contact</a></li>
                                 <li><a href="{{route('faq')}}">FAQ</a></li>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">User</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{route('userPanel.index')}}">Profile</a></li>
+                                        <li><a href="index-2.html">My Books</a></li>
+                                        <li><a href="home-v2.html">Saved Books</a></li>
+                                        <li><a href="home-v3.html">My Reviews</a></li>
+                                        <li><a href="{{route('userlogout')}}">Logout</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -150,6 +160,16 @@
                             <li><a  href="{{route('about')}}">About</a></li>
                             <li><a href="{{route('references')}}">References</a></li>
                             <li><a href="{{route('contact')}}">Contact</a></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle disabled" >User</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{route('userPanel.index')}}">Profile</a></li>
+                                    <li><a href="index-2.html">My Books</a></li>
+                                    <li><a href="home-v2.html">Saved Books</a></li>
+                                    <li><a href="home-v3.html">My Reviews</a></li>
+                                    <li><a href="{{route('userlogout')}}">Logout</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
