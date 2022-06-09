@@ -14,4 +14,7 @@ class Books extends Model
     public function comment(){
         return $this->hasMany(Comments::class);
     }
+    public function borrow(){
+        return $this->hasMany(Borrow::class);
+    }
 }

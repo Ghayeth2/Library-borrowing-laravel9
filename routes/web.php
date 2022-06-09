@@ -45,13 +45,31 @@ Route::view('/adminprofile','Admin.profile')->name('adminprofile');;
 Route::view('/userregister','homeTrails.register')->name('userregister');;
 
 Route::middleware('auth')->group(function () {
+
+
     /*    **********    USER ADMIN PANEL ROUTES   ************  */
-    Route::prefix('/userpanel')->name('userpanel.')->controller(UserAdminController::class)->group(function () {
+    Route::prefix('/userPanel')->name('userPanel.')->controller(UserAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/reviews','reviews')->name('reviews');
         Route::post('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
 
     });
+
+
+    /*                      BORROW ROUTES CONTROLLER                  */
+    Route::prefix('/borrow')->name('borrow.')->controller(BorrowController::class)->group(function () {
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/','index' )->name('index');
+
+    });
+
+
+
     /*                 Prefix  Route   Function           */
     Route::middleware('Admin')->prefix('/Admin')->name('Admin.')->group(function () {
         /*                        Admin Panel Controller                             */

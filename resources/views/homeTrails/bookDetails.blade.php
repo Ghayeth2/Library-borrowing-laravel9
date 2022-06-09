@@ -130,11 +130,13 @@
                                                     <li> <a href="#"> {{$data->comment->count('id')}}  <strong>Comment(s)</strong> </a></li>
                                                 </ul>
                                             </header>
-                                            <div class="entry-content post-buttons">
-                                                <a href="#." class="btn btn-dark-gray">Place a Hold</a>
-                                                <a href="#." class="btn btn-dark-gray">View sample</a>
-                                                <a href="#." class="btn btn-dark-gray">Find Similar Titles</a>
-                                            </div>
+                                            <form action="{{route('borrow.store')}}" method="post">
+                                                @csrf
+                                                <div class="entry-content post-buttons">
+                                                    <button name="id" value="{{$data->id}}" type="submit" class="btn btn-dark-gray">Add To My Borrows</button>
+                                                </div>
+                                            </form>
+
                                         </div>
                                     </div>
                                     <p><strong>Summary:</strong> {{$data->description}} </p>

@@ -86,7 +86,7 @@
                                                     <div class="price">$30.00</div>
                                                 </div>
                                                 <div class="cart-buttons">
-                                                    <a href="cart.html" class="btn btn-dark-gray">View Cart</a>
+                                                    <a href="{{route('borrow.index')}}" class="btn btn-dark-gray">View Cart</a>
                                                     <a href="checkout.html" class="btn btn-primary">Checkout</a>
                                                 </div>
                                             </div>
@@ -123,10 +123,10 @@
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">User</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{route('userpanel.index')}}">Profile</a></li>
+                                        <li><a href="{{route('userPanel.index')}}">Profile</a></li>
                                         <li><a href="index-2.html">My Books</a></li>
                                         <li><a href="home-v2.html">Saved Books</a></li>
-                                        <li><a href="{{route('userpanel.index')}}">My Reviews</a></li>
+                                        <li><a href="{{route('userPanel.reviews')}}">My Reviews</a></li>
                                         <li><a href="{{route('userlogout')}}">Logout</a></li>
                                     </ul>
                                 </li>
@@ -163,10 +163,10 @@
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle disabled" >User</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{route('userpanel.index')}}">Profile</a></li>
+                                    <li><a href="{{route('userPanel.index')}}">Profile</a></li>
                                     <li><a href="index-2.html">My Books</a></li>
                                     <li><a href="home-v2.html">Saved Books</a></li>
-                                    <li><a href="{{route('userpanel.index')}}">My Reviews</a></li>
+                                    <li><a href="{{route('userPanel.reviews')}}">My Reviews</a></li>
                                     <li><a href="{{route('userlogout')}}">Logout</a></li>
                                 </ul>
                             </li>
