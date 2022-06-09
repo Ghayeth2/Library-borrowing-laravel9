@@ -45,8 +45,12 @@ Route::view('/adminprofile','Admin.profile')->name('adminprofile');;
 Route::view('/userregister','homeTrails.register')->name('userregister');;
 
 Route::middleware('auth')->group(function () {
-    Route::prefix('userPanel')->prefix('/userPanel')->name('userPanel.')->group(function () {
-        Route::get('/', [UserAdminController::class, 'index'])->name('index');
+    /*    **********    USER ADMIN PANEL ROUTES   ************  */
+    Route::prefix('/userpanel')->name('userpanel.')->controller(UserAdminController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/reviews','reviews')->name('reviews');
+        Route::post('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+
     });
     /*                 Prefix  Route   Function           */
     Route::middleware('Admin')->prefix('/Admin')->name('Admin.')->group(function () {

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comments;
+use App\Models\Messages;
+use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserAdminController extends Controller
 {
@@ -15,7 +19,12 @@ class UserAdminController extends Controller
     {
         return view('homeTrails.user.index');
     }
-
+    public function reviews(){
+        $comments = Comments::where('user_id','=',Auth::id())->get();
+        return view('homeTrails.user.comments',[
+            'comments'=> $comments
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -77,8 +86,10 @@ class UserAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function reviewdestroy($id)
     {
-        //
+        $data =  Comments::find($id);
+        $data->delete();
+        return redirect(route('userpanel.reviews'));
     }
 }
