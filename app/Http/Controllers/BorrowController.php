@@ -48,6 +48,16 @@ class BorrowController extends Controller
         return redirect()->back()->with('info','Book has been added..');
     }
 
+    public function add($id)
+    {
+        //dd($request);
+        $data = new Borrow();
+        $data->book_id = $id;
+        $data->user_id = Auth::id();// logged in user
+        $data->save();
+        return redirect('/');
+    }
+
     /**
      * Display the specified resource.
      *

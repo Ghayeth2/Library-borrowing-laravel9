@@ -67,7 +67,7 @@
                                 <a href="{{route('book',['id'=>$row->id])}}">Read More <i class="fa fa-long-arrow-right"></i></a>
                                 <ol>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{route('borrow.add',['id'=>$row->id])}}">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </li>
@@ -88,7 +88,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-search"></i>
+                                            <i class="fa fa-arrow-circle-o-right"></i>
                                         </a>
                                     </li>
                                 </ol>
