@@ -68,7 +68,10 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Faq::find($id);
+        return view(  'admin.faq.edit',
+            [ 'data' => $data
+            ]);
     }
 
     /**

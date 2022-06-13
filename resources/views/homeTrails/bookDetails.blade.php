@@ -2,6 +2,7 @@
 @extends('layouts.homeBase')
 
 @section('title', $data->title)
+@include('homeTrails.bookDetailBanner')
 
 
 @section('content')
@@ -130,13 +131,20 @@
                                                     <li> <a href="#"> {{$data->comment->count('id')}}  <strong>Comment(s)</strong> </a></li>
                                                 </ul>
                                             </header>
-                                            <form action="{{route('borrow.store')}}" method="post">
-                                                @csrf
                                                 <div class="entry-content post-buttons">
-                                                    <button name="id" value="{{$data->id}}" type="submit" class="btn btn-dark-gray">Add To My Borrows</button>
+                                                    <a href="{{route('borrowmain',['id'=>$data->id])}}"  class="btn btn-dark-gray">Borrow This Book</a>
                                                 </div>
-                                            </form>
 
+                                        </div>
+                                    </div>
+                                    <div class="card-header">
+                                        <button  class="btn btn-dark-gray" data-toggle="collapse" href="#collapse{{$data->iteration}}">
+                                            <h3 style="color: gray">Collapsed Button</h3></button>
+                                        </a>
+                                    </div>
+                                    <div id="collapse{{$data->iteration}}" class="collapse @once show @endonce" data-parent="#according">
+                                        <div class="card-body">
+                                            <p style=" padding-top: 15px">Collapsed Data</p>
                                         </div>
                                     </div>
                                     <p><strong>Summary:</strong> {{$data->description}} </p>
@@ -153,7 +161,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
-                                                            <input class="form-control" type="hidden" name="book_id" value="{{$data->id}}"/>
+                                                            <input  class="form-control" type="hidden" name="book_id" value="{{$data->id}}"/>
                                                         </div>
                                                     </div>
 

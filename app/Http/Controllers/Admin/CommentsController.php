@@ -91,7 +91,7 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        $data =  Messages::find($id);
+        $data =  Comments::find($id);
         $data->delete();
         return redirect(route('Admin.comment.index'));
     }

@@ -65,6 +65,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class,'role_users');
     }
     public function borrow(){
-        return $this->hasMany(Borrow::class);
+        return $this->hasMany(BorrowMain::class);
     }
 }

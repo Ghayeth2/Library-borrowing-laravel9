@@ -46,7 +46,7 @@
                 @foreach($booklist as $row)
                 <li class="category-item adults">
                     <figure>
-                        <img src="{{Storage::url($row->image)}}"
+                        <img src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}"
                              style="width: 480px; height: 214px; "/>
                         <figcaption class="bg-orange">
                             <div class="info-block">
@@ -67,7 +67,7 @@
                                 <a href="{{route('book',['id'=>$row->id])}}">Read More <i class="fa fa-long-arrow-right"></i></a>
                                 <ol>
                                     <li>
-                                        <a href="{{route('borrow.add',['id'=>$row->id])}}">
+                                        <a href="#">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </li>

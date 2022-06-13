@@ -20,7 +20,7 @@ class Maincontroller extends Controller
     public function index(){
        // echo "index";
         $page = "home";
-        $sliderdata = Book::limit(6)->get();
+        $sliderdata = Book::limit(7)->get();
         $booklist = Book::limit(6)->get();
         $settings = Settings::first();
         return view('homeTrails.homePage',[
@@ -84,7 +84,7 @@ class Maincontroller extends Controller
         // echo "index";
         $data = Book::find($id);
         $images = DB::table('images')->where('book_id',$id)->get();
-        $review = Comments::where('book_id',$id)->get();
+        $review = Comments::where('book_id',$id)->where('status','true')->get();
         return view('homeTrails.bookDetails',[
             'data'=> $data,
             'images'=>$images,

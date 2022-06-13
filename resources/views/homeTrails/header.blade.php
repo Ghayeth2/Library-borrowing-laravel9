@@ -86,7 +86,7 @@
                                                     <div class="price">$30.00</div>
                                                 </div>
                                                 <div class="cart-buttons">
-                                                    <a href="{{route('borrow.index')}}" class="btn btn-dark-gray">View Cart</a>
+                                                    <a href="{{route('borrowindex')}}" class="btn btn-dark-gray">View Cart</a>
                                                     <a href="checkout.html" class="btn btn-primary">Checkout</a>
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">User</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{route('userPanel.index')}}">Profile</a></li>
-                                        <li><a href="index-2.html">My Books</a></li>
+                                        <li><a href="{{route('userPanel.books')}}">My Books</a></li>
                                         <li><a href="home-v2.html">Saved Books</a></li>
                                         <li><a href="{{route('userPanel.reviews')}}">My Reviews</a></li>
                                         <li><a href="{{route('userlogout')}}">Logout</a></li>
@@ -141,20 +141,31 @@
                             <li><a  href="{{route('home')}}">Home</a></li>
                             <li class="dropdown">
                                 @php
-                                    $mainCategories = \App\Http\Controllers\Maincontroller::maincategorylist();
+                                    $mainCategories = \App\Http\Controllers\Maincontroller::maincategorylist()
                                 @endphp
-                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Categories</a>
-                                <ul class="dropdown-menu">
-                                    @foreach($mainCategories as $row)
-                                        <li class="dropdown ">
-                                            <a  href="" style="text-decoration-color: black;  " >{{$row->title}}</a>
-                                            <ul class="dropdown-menu">
-                                                @if(count($row->children))
-                                                    @include('homeTrails.categorytree',['children'=>$row->children])
-                                                @endif
-                                            </ul>
-                                        </li>
-                                    @endforeach
+                                <h6 class="m-0">Categories</h6>
+                                <i class="fa fa-angle-down text-dark"></i>
+                                </a>
+
+                                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
+                                    @foreach($mainCategories as $rs)
+
+
+                                        <div class="navbar-nav w-100 overflow-hidden" style="height: 390px">
+
+                                            <div class="nav-item dropdown">
+
+                                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                                    @if(count($rs->children))
+                                                        @include('homeTrails.categorytree',['children' => $rs->children])
+                                                    @endif
+                                                </div>
+                                                <a href="#" class="nav-item nav-link" data-toggle="dropdown">{{$rs->title}} <i class="fa fa-angle-down float-right mt-1"></i></a>
+                                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                                </div>
+
+                                            </div>
+                            @endforeach
                                 </ul>
                             </li>
                             <li><a  href="{{route('about')}}">About</a></li>

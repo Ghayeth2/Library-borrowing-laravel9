@@ -31,8 +31,9 @@
                                 <th>Email</th>
                                 <th>Subject</th>
                                 <th>Status</th>
-                                <th>Delete</th>
                                 <th>Show</th>
+                                <th>Delete</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -47,7 +48,7 @@
                                     <td>{{$row->status}}</td>
                                     <td>
                                     <span>
-                                        <a href="{{route('Admin.message.show',['id'=>$row->id])}}"
+                                        <a class="btn btn-outline-primary"  href="{{route('Admin.message.show',['id'=>$row->id])}}"
                                         onclick="return !window.open(this.href,'','top = 40 left = 100 width = 1100 , height = 700' )">
                                         Show</a>
                                     </span>

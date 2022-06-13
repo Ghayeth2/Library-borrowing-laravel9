@@ -2,7 +2,7 @@
 <section class="page-banner services-banner">
     <div class="container">
         <div class="banner-header">
-            <h2>Contact Us</h2>
+            <h2>Comments</h2>
             <span class="underline center"></span>
             <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
         </div>

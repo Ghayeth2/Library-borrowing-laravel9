@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Models;
-
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\TeamInvitation as JetstreamTeamInvitation;
-
 class TeamInvitation extends JetstreamTeamInvitation
 {
     /**
@@ -16,7 +13,6 @@ class TeamInvitation extends JetstreamTeamInvitation
         'email',
         'role',
     ];
-
     /**
      * Get the team that the invitation belongs to.
      *

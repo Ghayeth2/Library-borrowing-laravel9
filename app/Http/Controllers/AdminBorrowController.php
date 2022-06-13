@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Borrow;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class BorrowController extends Controller
+class dminBorrowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,6 @@ class BorrowController extends Controller
     public function index()
     {
         //
-        $data = Borrow::where('user_id',Auth::id())->get();
-        return view('homeTrails.user.borrowed',[
-            'data' => $data
-        ]);
     }
 
     /**
@@ -40,22 +34,7 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        $data = new Borrow();
-        $data->book_id = $request->input('id');
-        $data->user_id = Auth::id();// logged in user
-        $data->save();
-        return redirect()->back()->with('info','Book has been added..');
-    }
-
-    public function add($id)
-    {
-        //dd($request);
-        $data = new Borrow();
-        $data->book_id = $id;
-        $data->user_id = Auth::id();// logged in user
-        $data->save();
-        return redirect('/');
+        //
     }
 
     /**
@@ -100,8 +79,6 @@ class BorrowController extends Controller
      */
     public function destroy($id)
     {
-        $data = Borrow::find($id);
-        $data->delete();
-        return redirect()->back()->with('info','Book has been deleted..');
+        //
     }
 }

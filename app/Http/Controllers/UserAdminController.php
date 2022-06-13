@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Borrow;
+use App\Models\BorrowMain;
 use App\Models\Comments;
 use App\Models\Messages;
 use App\Models\Settings;
@@ -23,6 +25,12 @@ class UserAdminController extends Controller
         $comments = Comments::where('user_id','=',Auth::id())->get();
         return view('homeTrails.user.comments',[
             'comments'=> $comments
+        ]);
+    }
+    public function books(){
+        $books = BorrowMain::where('user_id','=',Auth::id())->get();
+        return view('homeTrails.user.books',[
+            'books'=> $books
         ]);
     }
     /**
@@ -91,5 +99,12 @@ class UserAdminController extends Controller
         $data =  Comments::find($id);
         $data->delete();
         return redirect(route('userpanel.reviews'));
+    }
+    public function booksdestroy ($id)
+    {
+        //
+        $data= BorrowMain::find($id);
+        $data->delete();
+        return redirect(route('userpanel.books'));
     }
 }

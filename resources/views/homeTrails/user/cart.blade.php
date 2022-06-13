@@ -34,11 +34,16 @@
                                     <div class="woocommerce table-tabs" id="responsiveTabs">
                                         <ul class="nav nav-tabs">
                                             <li class="active"><b class="arrow-up"></b><a data-toggle="tab" href="#sectionA">Book Bag</a></li>
-                                            <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionB">Holds (4)</a></li>
-                                            <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionC">My Checkouts (0)</a></li>
+                                            <li><b class="arrow-up"></b><a data-toggle="tab" href="#">Holds (4)</a></li>
+
                                             <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionD">My eBooks (1)</a></li>
                                             <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionE">My Lists</a></li>
                                             <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionF">Fines/Fees ($0.00)</a></li>
+                                            <form action="{{route('borrow.order')}}" method="post">
+                                                @csrf
+                                                <li><button type="submit" name="" value=""  >My Checkouts (0)</button></li>
+                                            </form>
+
                                         </ul>
                                         <div class="tab-content">
                                             <div id="sectionA" class="tab-pane fade in active">

@@ -1,10 +1,6 @@
 @extends('layouts.adminBase')
 
-@section('title', 'Edit Book')
-
-@section('head')
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
-@endsection
+@section('title', 'Edit FAQ'.$data->title)
 
 @section('content')
     <!--**********************************
@@ -21,52 +17,22 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('Admin.book.update',['id'=>$data->id])}}" method="post"
+                    <form action="{{route('Admin.faq.update',['id'=>$data->id])}}" method="post"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Parent Category</label>
-                                <select id="inputState" class="form-control" name="category_id">
-                                    <option value="0" selected="selected">Main Category</option>
-                                    @foreach($datalist as $row)
-                                        <option value="{{$row->id}}"
-                                                @if($row->id == $data->category_id) selected="selected"@endif >
-                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree(
-                                                 $row,$row->title)}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Title</label>
-                                <input type="text" class="form-control" value="{{$data->title}}" name="title">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Author</label>
-                                <input type="text" class="form-control" value="{{$data->author}}" name="author">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>ISBN</label>
-                                <input type="text" class="form-control" value="{{$data->isbn}}" name="isbn">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Edition</label>
-                                <input type="text" class="form-control" value="{{$data->edition}}" name="edition">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Keywords</label>
-                                <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword">
+                                <input type="text" class="form-control" value="{{$data->question}}" name="question">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="exampleInputEmail">Details</label>
-                                <textarea class="form-control" name="detail" id="detail">
-
+                                <textarea class="form-control" name="answer" id="answer">
+                                    {{ $data->answer }}
                                 </textarea>
                                 <script>
                                     ClassicEditor
-                                        .create(document.querySelector('#detail'))
+                                        .create(document.querySelector('#answer'))
                                         .then(editor => {
                                             console.log(editor);
                                         })
@@ -74,19 +40,6 @@
                                             console.error(error);
                                         });
                                 </script>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Description</label>
-                                <input type="text" class="form-control" name="description"
-                                       value="{{$data->description}}">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Image</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="image">
-                                    <label class="custom-file-label">Choose image file</label>
-                                </div>
-
                             </div>
                         </div>
                         <div class="form-row">

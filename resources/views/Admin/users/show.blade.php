@@ -57,7 +57,7 @@
                                 <th scope="col">
                                     <form action="{{route('Admin.users.addrole',['id'=>$data->id])}}" method="post">
                                         @csrf
-                                        <select name="role">
+                                        <select name="role_id">
                                             @foreach($roles as $role)
                                                 <option value="{{$role->id}}">
                                                     {{$role->name}}

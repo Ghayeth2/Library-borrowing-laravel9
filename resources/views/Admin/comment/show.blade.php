@@ -25,7 +25,7 @@
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">Book Title</th>
-                                <th scope="col">{{$data->user->book->title}}</th>
+                                <th scope="col">{{$data->book->title}}</th>
                             </tr>
                             <tr>
                                 <th scope="col" style="color: black">User Name</th>

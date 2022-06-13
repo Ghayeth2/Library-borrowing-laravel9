@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comments;
 use App\Models\Role;
 use App\Models\RoleUser;
 use App\Models\User;
@@ -23,6 +24,7 @@ class UsersController extends Controller
             'data'=> $data
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -148,6 +150,13 @@ class UsersController extends Controller
     {
         $data =  User::find($uid);
         $data->roles()->detach($rid);
-        return redirect(route('Admin.users.show',['uid'=>$uid]));
+        return redirect(route('Admin.users.show',['id'=>$uid]));
+    }
+        public function destroy($id)
+    {
+        $data =  User::find($id);
+        $data->delete();
+        return redirect(route('Admin.users.index'));
+
     }
 }

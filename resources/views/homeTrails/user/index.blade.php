@@ -2,10 +2,10 @@
 @extends('layouts.homeBase')
 
 @section('title', 'User Panel')
+@include('homeTrails.user.profileBanner')
 @section('content')
     <!-- Start: Category Filter -->
-    <section class="category-filter section-padding">
-        <div class="container">
+        <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-md-12">
                     @include('profile.show')
@@ -14,7 +14,6 @@
             </div>
 
         </div>
-    </section>
     <!-- Start: Category Filter -->
 
 

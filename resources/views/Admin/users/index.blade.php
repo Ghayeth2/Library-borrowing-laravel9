@@ -30,8 +30,9 @@
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Status</th>
-                                <th>Delete</th>
+
                                 <th>Show</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>

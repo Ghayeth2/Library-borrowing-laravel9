@@ -3,9 +3,7 @@
 
 @section('title', 'Comment List')
 
-@section('head')
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
-@endsection
+
 
 @section('content')
     <!--**********************************
@@ -27,6 +25,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>User Name</th>
+                                <th>Book Title</th>
                                 <th>Comment</th>
                                 <th>Rate</th>
                                 <th>Status</th>
@@ -39,8 +38,8 @@
                                 <tr>
                                     <td><a href="javascript:void(0)">{{$row->id}}</a>
                                     </td>
-                                    <td><a href="{{route('Admin.book.show',['id'=> $row->book_id])}}">{{$row->book->title}}</a></td>
                                     <td>{{$row->user->name}}</td>
+                                    <td>{{$row->book->title}}</td>
                                     <td>{{$row->comment}}</td>
                                     <td>{{$row->rate}}</td>
                                     <td>{{$row->status}}</td>

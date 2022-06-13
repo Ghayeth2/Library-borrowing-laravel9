@@ -26,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/book/{id}',[Maincontroller::class,'book'])->name('book');
+Route::get('/borrowmain/{id}',[BorrowMainController::class,'borrowmain'])->name('borrowmain');
+Route::get('/borrowindex',[BorrowMainController::class,'borrowindex'])->name('borrowindex');
+Route::post('/storeborrowbook',[BorrowMainController::class,'storeborrowbook'])->name('storeborrowbook');
+Route::get('/destroyborrowbook/{id}',[BorrowMainController::class,'destroyborrowbook'])->name('destroyborrowbook');
 Route::get('/categorybooks/{id}/{slug}',[Maincontroller::class,'categorybooks'])->name('categorybooks');
 
 
@@ -37,12 +41,14 @@ Route::get('/references',[Maincontroller::class,'references'])->name('references
 Route::get('/faq',[Maincontroller::class,'faq'])->name('faq');
 Route::post('/savecomment',[Maincontroller::class,'savecomment'])->name('savecomment');
 Route::post('/savemessage',[Maincontroller::class,'savemessage'])->name('savemessage');
-Route::get('/userlogout',[Maincontroller::class,'logout'])->name('userlogout');
+
 Route::post('/adminlogincheck',[Maincontroller::class,'adminlogincheck'])->name('adminlogincheck');
 Route::view('/adminlogin','Admin.login')->name('adminlogin');
 Route::view('/userlogin','homeTrails.logIn')->name('userlogin');;
 Route::view('/adminprofile','Admin.profile')->name('adminprofile');;
 Route::view('/userregister','homeTrails.register')->name('userregister');;
+Route::get('/userlogout',[Maincontroller::class,'logout'])->name('userlogout');
+
 
 Route::middleware('auth')->group(function () {
 
@@ -52,22 +58,22 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/reviews','reviews')->name('reviews');
         Route::post('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+        Route::get('/books','books')->name('books');
+        Route::post('/booksdestroy/{id}', 'booksdestroy')->name('booksdestroy');
 
     });
 
 
-    /*                      BORROW ROUTES CONTROLLER                  */
-    Route::prefix('/borrow')->name('borrow.')->controller(BorrowController::class)->group(function () {
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::get('/add/{id}', 'add')->name('add');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::get('/show/{id}', 'show')->name('show');
-        Route::post('/update/{id}', 'update')->name('update');
-        Route::get('/destroy/{id}', 'destroy')->name('destroy');
-        Route::get('/','index' )->name('index');
 
-    });
+
+
+
+
+
+
+
+
+
 
 
 
@@ -75,10 +81,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware('Admin')->prefix('/Admin')->name('Admin.')->group(function () {
         /*                        Admin Panel Controller                             */
         Route::get('/', [adminController::class, 'index2'])->name('index2');
-        /*                        General Admin Controller                             */
-
-        Route::get('/settings', [adminController::class, 'settings'])->name('settings');
-        Route::post('/settingsupdate', [adminController::class, 'settingsupdate'])->name('settings.update');
+        //***** General Routes routes ****
+        Route::get('/setting', [adminController::class,'setting'])->name('setting');
+        Route::post('/setting', [adminController::class,'settingUpdate'])->name('setting.update');
 
 
         /*                      Admin Category Panel Controller                  */
@@ -88,7 +93,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', 'edit')->name('edit');
             Route::get('/show/{id}', 'show')->name('show');
             Route::post('/update/{id}', 'update')->name('update');
-            Route::post('/destroy/{id}', 'destroy')->name('destroy');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
             Route::get('/','index' )->name('index');
 
         });
@@ -103,6 +108,18 @@ Route::middleware('auth')->group(function () {
             Route::post('/update/{id}', 'update')->name('update');
             Route::get('/destroy/{id}', 'destroy')->name('destroy');
             Route::get('/', 'index')->name('index');
+
+        });
+
+        /*                      ADMIN BORROW TABLE ROUTES                  */
+        Route::prefix('/borrowm')->name('borrowm.')->controller(AdminBorrowControler::class)->group(function () {
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::get('/show/{id}', 'show')->name('show');
+            Route::post('/update/{id}', 'update')->name('update');
+            Route::get('/destroy/{id}', 'destroy')->name('destroy');
+            Route::get('/index','index' )->name('index');
 
         });
 
@@ -137,7 +154,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/update/{id}', 'update')->name('update');
             Route::post('/addrole/{id}', 'addrole')->name('addrole');
             Route::get('/destroy/{id}', 'destroy')->name('destroy');
-            Route::get('/destroy/{uid}/{rid}', 'destroyrole')->name('destroyrole');
+            Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
             Route::get('/', 'index')->name('index');
 
         });
