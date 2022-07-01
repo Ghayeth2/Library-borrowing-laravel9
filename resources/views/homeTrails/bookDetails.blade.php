@@ -137,16 +137,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="card-header">
-                                        <button  class="btn btn-dark-gray" data-toggle="collapse" href="#collapse{{$data->iteration}}">
-                                            <h3 style="color: gray">Collapsed Button</h3></button>
-                                        </a>
-                                    </div>
-                                    <div id="collapse{{$data->iteration}}" class="collapse @once show @endonce" data-parent="#according">
-                                        <div class="card-body">
-                                            <p style=" padding-top: 15px">Collapsed Data</p>
-                                        </div>
-                                    </div>
+
                                     <p><strong>Summary:</strong> {{$data->description}} </p>
                                     <div class="booksmedia-fullwidth booksmedia-popular-list">
                                         <h2 class="section-title text-center">Comment & Review Section</h2>

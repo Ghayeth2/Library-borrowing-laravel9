@@ -1,14 +1,11 @@
-
 <!-- Start: Slider Section -->
 <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
 
     <!-- Carousel slides -->
     <div class="carousel-inner">
-        @foreach($sliderdata as $row)
         <div class="item active">
             <figure>
-                <img alt="Home Slide" src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}"
-                     style="width: 1920px; height: 1000px; "/>
+                <img alt="Home Slide" src="{{asset('assets')}}/images/header-slider/home-v1/header-slide.jpg" />
             </figure>
             <div class="container">
                 <div class="carousel-caption">
@@ -22,6 +19,23 @@
                 </div>
             </div>
         </div>
+        @foreach($slider as $row)
+            <div class="item">
+                <figure>
+                    <img alt="Home Slide" src="{{\Illuminate\Support\Facades\Storage::url($row->image)}}" style="width: 1920px; height: 1000px;" />
+                </figure>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>{{$row->title}}</h3>
+                        <h2>Discover Your Roots</h2>
+                        <p>{{$row->description}}</p>
+                        <div class="slide-buttons hidden-sm hidden-xs">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                            <a href="#" class="btn btn-default">Purchase</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endforeach
 
     </div>
@@ -31,4 +45,3 @@
     <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
 </div>
 <!-- End: Slider Section -->
-

@@ -20,11 +20,11 @@ class Maincontroller extends Controller
     public function index(){
        // echo "index";
         $page = "home";
-        $sliderdata = Book::limit(7)->get();
+        $slider = Book::select('title','image','description')->limit(4)->get();
         $booklist = Book::limit(6)->get();
         $settings = Settings::first();
         return view('homeTrails.homePage',[
-            'sliderdata'=> $sliderdata,
+            'slider'=> $slider,
             'booklist'=> $booklist,
             'page'=> $page,
             'settings'=> $settings

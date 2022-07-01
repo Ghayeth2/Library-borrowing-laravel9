@@ -186,6 +186,8 @@ Route::middleware('auth')->group(function () {
 });
 // Redirect function
 Route::redirect('/tirle','test');
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
